@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+    alumni:
+      image: fauria/lamp
+      volumes:
+            - ~/docker/path_anda/ke_folder/alumni:/var/www/html   # Sesuaikan setting local Anda
+      labels:
+            - "traefik.backend=alumni.di-server-local.anda"       # Sesuaikan setting local Anda
+            - "traefik.docker.network=net1"
+            - "traefik.port=80"
+            - "traefik.frontend.rule=Host:alumni.di-server-local.anda" # Sesuaikan setting local Anda
+      environment:
+            - BASE_URL=http://alumni.di-server-local.anda         # Sesuaikan setting local Anda
+            - DB_HOST=nama_container_database_anda                # Sesuaikan setting local Anda
+            - DB_DATA=siska_alumni        # boleh sama, beda tidak masalah, yg penting sesuai nama database
+            - DB_USER=XXXXXXXXXXXXX       # Sesuaikan setting local Anda
+            - DB_PASS=XXXXXXXXXXXXX       # Sesuaikan setting local Anda
+            - DATE_TIMEZONE=Asia/Makassar
+      networks:
+            - net1
+            - net2
+      container_name: alumnikharisma      # bebas
+      restart: always
+
+networks:
+  net1:
+    external: true
+  net2:
+    external: true
