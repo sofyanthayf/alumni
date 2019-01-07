@@ -6,6 +6,9 @@ class Tracer_model extends CI_Model {
         parent::__construct();
     }
 
-
+    public function statAlumni($value='')
+    {
+      // code...
+    }
 
 }
