@@ -9,6 +9,8 @@
        </p>
     </div>
 
+    <?= $this->mylib->agama['4'] ?>
+
     <div class="owl-carousel clients-carousel">
       <img src="/assets/img/mitra/1547623299.png" alt="" class="mitra-img">
       <img src="/assets/img/mitra/1547623300.jpg" alt="" class="mitra-img">
