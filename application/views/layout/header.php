@@ -24,6 +24,7 @@
   <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="/assets/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="/assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/assets/css/bootstrap-datepicker.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="/assets/css/style.css" rel="stylesheet">
