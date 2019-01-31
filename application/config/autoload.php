@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','gcharts');
+$autoload['libraries'] = array('database','gcharts','session');
 
 /*
 | -------------------------------------------------------------------
