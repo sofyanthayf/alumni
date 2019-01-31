@@ -31,9 +31,13 @@
 <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="/assets/lib/magnific-popup/magnific-popup.min.js"></script>
 <script src="/assets/lib/sticky/sticky.js"></script>
+
 <script src="/assets/js/bootstrap-datepicker.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="/assets/js/validasi.js"></script>
+
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
 
