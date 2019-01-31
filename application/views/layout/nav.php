@@ -9,5 +9,15 @@
     </li>
     <li><a href="#mitra">Mitra</a></li>
     <li><a href="#loker">Lowongan Kerja</a></li>
+
+    <?php
+      if( isset( $this->session->nama_alumni )){
+     ?>
+
+    <li><a href="/logout">Logout</a></li>
+
+    <?php 
+      }
+     ?>
   </ul>
 </nav><!-- #nav-menu-container -->

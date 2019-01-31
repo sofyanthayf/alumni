@@ -57,12 +57,12 @@ class Alumni_model extends CI_Model {
      return $query->result();
   }
 
-
-	public function jumlahAlumni( $prodi = '' )
-    {
+  public function jumlahAlumni( $prodi = '' )
+  {
       if( $prodi != ''){
         $this->db->where( 'prodi', $prodi );
       }
+      
       $this->db->select('COUNT(*) jumlah');  // sama dengan 'COUNT(*) AS jumlah'
                                              // 'AS jumlah' adalah operasi rename untuk menentukan
                                              // nama field dari output yang akan dihasilkan
@@ -72,6 +72,7 @@ class Alumni_model extends CI_Model {
          "SELECT COUNT(*) jumlah FROM alumni"
        atau:
          "SELECT COUNT(*) jumlah FROM alumni WHERE prodi='$prodi'"  (jika $prodi ditentukan)
+
        hasilnya adalah:
           jumlah  --> nama field
           ------

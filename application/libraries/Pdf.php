@@ -25,7 +25,7 @@ class Pdf extends Dompdf
 	 * @return	void
 	 */
 
-	protected function ci()
+  protected function ci()
 	{
 		return get_instance();
 	}
@@ -43,6 +43,5 @@ class Pdf extends Dompdf
 		$this->set_option( 'isRemoteEnabled', true );
 		$html = $this->ci()->load->view($view, $data, TRUE);
 		$this->load_html($html);
-
 	}
 }

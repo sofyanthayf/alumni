@@ -155,4 +155,9 @@ class Alumni extends CI_Controller {
 
   }
 
+  public function dataalumni()
+  {
+    $this->load->template('alumni/dataalumni');
+  }
+  
 }
