@@ -31,6 +31,7 @@
 <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="/assets/lib/magnific-popup/magnific-popup.min.js"></script>
 <script src="/assets/lib/sticky/sticky.js"></script>
+<script src="/assets/js/validasi.js"></script>
 
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
