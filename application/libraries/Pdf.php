@@ -24,7 +24,8 @@ class Pdf extends Dompdf
 	 * @access	protected
 	 * @return	void
 	 */
-	protected function ci()
+
+  protected function ci()
 	{
 		return get_instance();
 	}

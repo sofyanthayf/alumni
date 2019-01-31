@@ -6,6 +6,7 @@
 
     <div class="intro-content">
       <h2><span><?=$jumlah_alumni?></span> Alumni<br>Untuk Indonesia</h2>
+
       <div>
         <a href="#about" class="btn-get-started scrollto">Alumni KHARISMA</a>
         <a href="#portfolio" class="btn-projects scrollto">Mitra KHARISMA</a>
@@ -54,7 +55,9 @@
       ALUMNI Section
     ============================-->
 		<?php
-				$this->load->view('alumni/alumni_home_inc.php');
+        $this->load->model('Alumni_model');
+        $data['fotoalumni'] = $this->Alumni_model->GetFoto();
+				$this->load->view('alumni/alumni_home_inc.php',$data);
 		 ?>
 
     <!--==========================

@@ -8,69 +8,34 @@
 
       <div class="owl-carousel clients-carousel">
 
-        <!-- <div class="col-lg-3 col-md-6"> -->
-          <div class="member">
-            <div class="pic"><img src="/assets/img/team-1.jpg" alt=""></div>
-            <div class="details">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
+        <?php foreach($fotoalumni as $key):; ?>
+        <?php
+        $nimhs =  $key->nimhs;
 
-        <!-- <div class="col-lg-3 col-md-6"> -->
-          <div class="member">
-            <div class="pic"><img src="/assets/img/team-2.jpg" alt=""></div>
-            <div class="details">
-              <h4>Sarah Jhinson</h4>
-              <span>Product Manager</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
+        $angkatan = substr($nimhs,3,2);
+        $prodi = substr($nimhs, 0,3);
 
-        <!-- <div class="col-lg-3 col-md-6"> -->
-          <div class="member">
-            <div class="pic"><img src="/assets/img/team-3.jpg" alt=""></div>
-            <div class="details">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-        <!-- </div> -->
 
-        <!-- <div class="col-lg-3 col-md-6"> -->
-          <div class="member">
-            <div class="pic"><img src="/assets/img/team-4.jpg" alt=""></div>
-            <div class="details">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-              </div>
-            </div>
+         $filenama = 'assets/img/alumni/'.$angkatan. '/' .$prodi. '/' .$nimhs. '.jpg';
+
+         // $filenama = '/assets/img/alumni/16/520/52016003.jpg';
+
+         if (file_exists(FCPATH.$filenama)) {
+           $link = base_url().$filenama;
+         } else {
+             $link = 'https://siska.kharisma.ac.id//assets//img//foto//mhs//'.$angkatan.'/'.$prodi.'//'.$nimhs.'.jpg';
+         };
+
+        ?>
+
+        <div class="member">
+          <div class="pic"><img src=" <?php echo $link; ?> " width='150px' height='250px'></div>
+          <div class="details">
+            <?php echo $key->namamhs ?>
           </div>
-        <!-- </div> -->
+        </div>
+
+       <?php endforeach; ?>
 
       </div>
 
