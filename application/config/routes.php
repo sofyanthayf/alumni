@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['contactperson'] = 'mitra/formeditcontactperson';
+$route['editperusahaan'] = 'mitra/formeditperusahaan';
+$route['editkantorcabang'] = 'mitra/formeditkantorcabang';
+
 $route['penilaian-kinerja/(:any)'] = 'mitra/formPenilaianKinerja/$1';
 
 $route['dalumni'] = 'alumni/dataalumni';
