@@ -56,7 +56,7 @@
     ============================-->
 		<?php
         $this->load->model('Alumni_model');
-        $data['fotoalumni'] = $this->Alumni_model->GetFoto();
+        $data['fotoalumni'] = $this->alumni_model->GetFoto();
 				$this->load->view('alumni/alumni_home_inc.php',$data);
 		 ?>
 

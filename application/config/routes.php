@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['penilaian-kinerja/(:any)'] = 'mitra/formPenilaianKinerja/$1';
+
 $route['dalumni'] = 'alumni/dataalumni';
 $route['logout'] = 'user/logout';
 
