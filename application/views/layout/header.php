@@ -1,3 +1,8 @@
+<?php
+  if( !isset( $public ) && !isset( $this->session->uid ) ) {
+    redirect( "/" );
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +30,7 @@
   <link href="/assets/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="/assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="/assets/css/bootstrap-datepicker.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- Main Stylesheet File -->
   <link href="/assets/css/style.css" rel="stylesheet">
 
@@ -35,6 +40,9 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+  <script src="/assets/lib/jquery/jquery.min.js"></script>
+  <script src="/assets/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body id="body">
@@ -64,7 +72,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto"><span>Alumni</span> KHARISMA</a></h1>
+        <h1><a href="/#body" class="scrollto"><span>Alumni</span> KHARISMA</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#body"><img src="/assets/img/logo.png" alt="" title="" /></a> -->
       </div>

@@ -1,4 +1,4 @@
-<section id="contact" class="wow fadeInUp">
+<section id="contact" class="wow">
   <div class="container">
 
     <div class="form row">
@@ -16,15 +16,15 @@
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <i class="icon fa fa-check"></i> <?= $this->session->flashdata('msg_ok'); ?>
         </div>
-        <?php } ?>
-
-        <?php if($this->session->flashdata('msg_error')) { ?>
+      <?php
+        } elseif($this->session->flashdata('msg_error')) {
+      ?>
         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <i class="icon fa fa-ban"></i> <?= $this->session->flashdata('msg_error'); ?>
         </div>
         <?php } ?>
-        <form action="" method="post" role="form">
+        <form action="/lupapassword" method="post" role="form">
           <div class="form-group">
             <label>Email :</label>
             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>

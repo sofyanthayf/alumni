@@ -6,28 +6,27 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 
-    public function login_alumni($email,$password)
+    public function login_alumni($email)
   	{
   		$this->db->where('users.email', $email);
-      $this->db->where('users.password', $password);
       $this->db->where('users.status', '0');
-      $this->db->join('alumni', 'alumni.email = users.email', 'left');
+      $this->db->join('alumni', 'alumni.email=users.email', 'LEFT');
       return $this->db->get('users')->row();
   	}
 
-    public function login_mitra($email,$password)
+    public function login_mitra($email)
   	{
       $this->db->where('users.email', $email);
-      $this->db->where('users.password', $password);
       $this->db->where('users.status', '1');
-      $this->db->join('contact_person', 'contact_person.email = users.email', 'left');
+      $this->db->join('contact_person', 'contact_person.email=users.email', 'LEFT');
       return $this->db->get('users')->row();
   	}
 
-    public function update_visits($email)
+    public function update_visits($email, $ipaddr)
   	{
       $this->db->where('email', $email);
       $this->db->set('visits', 'visits+1', FALSE);
+      $this->db->set('last_ipaddr', $ipaddr);
       $this->db->update('users');
   	}
 
@@ -62,5 +61,19 @@ class User_model extends CI_Model {
       $this->db->where('email', $email);
       $this->db->update('users');
     }
+
+
+    public function emailIsAlumni( $email )
+    {
+      $this->db->where('email', $email);
+      $query = $this->db->get('alumni');
+
+      if( $query->num_rows() > 0 ){
+        return 1;
+      }
+
+      return 0;
+    }
+
 
 }

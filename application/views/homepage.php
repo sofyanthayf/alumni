@@ -8,8 +8,8 @@
       <h2><span><?=$jumlah_alumni?></span> Alumni<br>Untuk Indonesia</h2>
 
       <div>
-        <a href="#about" class="btn-get-started scrollto">Alumni KHARISMA</a>
-        <a href="#portfolio" class="btn-projects scrollto">Mitra KHARISMA</a>
+        <a href="/alumni/login" class="btn-get-started scrollto">Alumni KHARISMA</a>
+        <a href="/mitra/login" class="btn-projects scrollto">Mitra KHARISMA</a>
       </div>
     </div>
 
@@ -55,9 +55,7 @@
       ALUMNI Section
     ============================-->
 		<?php
-        $this->load->model('Alumni_model');
-        $data['fotoalumni'] = $this->alumni_model->GetFoto();
-				$this->load->view('alumni/alumni_home_inc.php',$data);
+				$this->load->view('alumni/alumni_home_inc.php');
 		 ?>
 
     <!--==========================
@@ -83,121 +81,15 @@
 
 
     <!--==========================
-      Our Portfolio Section
-    ============================-->
-    <!-- <section id="portfolio" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Our Portfolio</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
-        </div>
-      </div>
-
-      <div class="container-fluid">
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/1.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/1.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 1</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/2.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/2.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 2</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/3.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/3.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 3</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/4.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/4.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 4</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/5.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/5.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 5</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/6.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/6.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 6</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/7.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/7.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 7</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="portfolio-item wow fadeInUp">
-              <a href="/assets/img/portfolio/8.jpg" class="portfolio-popup">
-                <img src="/assets/img/portfolio/8.jpg" alt="">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio --> -->
-
-
-    <!--==========================
       Contact Section
     ============================-->
     <section id="contact" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2>Contact Us</h2>
-          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          <p>Untuk informasi, komunikasi dan upaya untuk menjalin kerjasama terkait dengan
+             pelayanan dan informasi alumni, silahkan menghubungi kami:
+           </p>
         </div>
 
         <div class="row contact-info">
@@ -205,24 +97,24 @@
           <div class="col-md-4">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <h3>Alamat Kampus</h3>
+              <address>Jl. Baji Ateka no.20, Makassar 90134, Sulawesi Selatan INDONESIA</address>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <h3>Telepon</h3>
+              <p><a href="tel:+155895548855">+62 411 871555</a></p>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <i class="ion-android-globe"></i>
+              <h3>Web Site</h3>
+              <p><a href="http://www.kharisma.ac.id">www.kharisma.ac.id</a></p>
             </div>
           </div>
 

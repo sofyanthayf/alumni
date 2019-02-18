@@ -6,9 +6,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Testimoni extends CI_Controller {
 
-  public function index()
-  {
-    // code...
+  function __construct(){
+    parent::__construct();
+    $this->load->model('alumni_model');
   }
 
+  public function index()
+  {
+    echo 'list testimoni';
+  }
+
+  public function tulis_testimoni()
+  {
+    $data['alumnus'] = $this->alumni_model->alumnus( $this->session->uid );
+    $this->load->template('testimoni/formtestimoni', $data);
+  }
+
+  public function submit_testimoni()
+  {
+    $data = array(
+              'id' => date('U'),
+              'email' => $this->session->email,
+              'status' => ( $this->session->who=='al' ? 0 : 1 ),
+              'testimoni' => $this->input->post('testi')
+            );
+    $insert = $this->alumni_model->prosesInsert('testimoni',$data);
+    redirect('/alumni/'.$this->session->uid,'refresh');
+  }
 }

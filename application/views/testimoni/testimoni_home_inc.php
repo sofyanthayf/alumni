@@ -8,7 +8,10 @@
         <div class="testimonial-item">
           <p>
             <img src="/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+<?php
+$testi = "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.";
+echo $testi . "(" . strlen($testi). ")";
+?>
             <img src="/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
           </p>
           <img src="/assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
@@ -19,7 +22,10 @@
         <div class="testimonial-item">
           <p>
             <img src="/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-            Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+<?php
+$testi = "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.";
+echo $testi . "(" . strlen($testi). ")";
+?>
             <img src="/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
           </p>
           <img src="/assets/img/testimonial-2.jpg" class="testimonial-img" alt="">
@@ -30,7 +36,10 @@
         <div class="testimonial-item">
           <p>
             <img src="/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+<?php
+$testi = "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.";
+echo $testi . "(" . strlen($testi). ")";
+?>
             <img src="/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
           </p>
           <img src="/assets/img/testimonial-3.jpg" class="testimonial-img" alt="">
@@ -41,7 +50,11 @@
         <div class="testimonial-item">
           <p>
             <img src="/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+<?php
+$testi = "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.";
+echo $testi . "(" . strlen($testi). ")";
+?>
+
             <img src="/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
           </p>
           <img src="/assets/img/testimonial-4.jpg" class="testimonial-img" alt="">
@@ -52,7 +65,11 @@
         <div class="testimonial-item">
           <p>
             <img src="/assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
-            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+<?php
+$testi = "Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.";
+echo $testi . "(" . strlen($testi). ")";
+?>
+
             <img src="/assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
           </p>
           <img src="/assets/img/testimonial-5.jpg" class="testimonial-img" alt="">

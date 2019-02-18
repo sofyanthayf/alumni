@@ -4,7 +4,11 @@
 <footer id="footer">
   <div class="container">
     <div class="copyright">
-      &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+      <strong>Layanan Alumni dan Tracer Study Alumni STMIK KHARISMA Makassar</strong><br>
+      dikembangkan oleh Tim Developer STMIK KHARISMA Makassar (<a href="/credits" title="see credits" target="_blank">Credits</a>)<br>
+      &copy; Copyright <strong>STMIK KHARISMA Makassar</strong>, 2018 <br>
+      &nbsp; <br>
+      Design Template & Layout: &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!--
@@ -21,8 +25,6 @@
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 <!-- JavaScript Libraries -->
-<script src="/assets/lib/jquery/jquery.min.js"></script>
-<script src="/assets/lib/jquery/jquery-migrate.min.js"></script>
 <script src="/assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/lib/easing/easing.min.js"></script>
 <script src="/assets/lib/superfish/hoverIntent.js"></script>
@@ -36,8 +38,6 @@
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-<script src="/assets/js/validasi.js"></script>
-
 <!-- Contact Form JavaScript File -->
 <script src="contactform/contactform.js"></script>
 
@@ -47,9 +47,9 @@
 <script type="text/javascript">
  $(function(){
   $(".datepicker").datepicker({
-      format: 'yyyy-mm-dd',
+      format: 'dd-mm-yyyy',
       autoclose: true,
-      todayHighlight: true,
+      todayHighlight: false,
   });
  });
  $('#tabel_loker').DataTable();

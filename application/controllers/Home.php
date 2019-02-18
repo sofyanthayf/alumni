@@ -18,22 +18,27 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$data['public'] = true;
 
-		$data['fotoalumni'] = $this->alumni_model->GetFoto();
-
-		// passing data ke view homepage
-//		$this->load->template('homepage', $data);
-//		$this->load->view('alumni/alumni_home_inc.php', $data);
-
-    // ambil data dari Alumni_model melalui function jumlahAlumni()
 		$data['jumlah_alumni'] = $this->alumni_model->jumlahAlumni();
+
+		// $data['fotoalumni'] = $this->alumni_model->GetFoto();
+		$data['daftar_alumni_baru'] = $this->alumni_model->alumni();
 
 		$data['daftarmitra'] =  $this->mitra_model->daftar_mitra();
 
 		$data['loker'] = $this->loker_model->list_loker_home();
 
+		$data['last_yudisum'] = $this->alumni_model->lastYudisium();
+
 		// passing data ke view homepage
 		$this->load->template('homepage', $data);
+	}
+
+	public function credits()
+	{
+		$data['public'] = true;
+		$this->load->template('credits', $data);
 	}
 
 }
