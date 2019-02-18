@@ -16,8 +16,10 @@
               <img src="/assets/img/user16.png"> ganti password
             </a>
 
-            <a class="btn btn-light btn-block" href="testimoni" title="Tulis tetsimoni anda tentang KHARISMA" style="margin:15px;">
-              <img src="/assets/img/edit16.png"> tulis testimoni
+            <a class="btn btn-light btn-block" href="testimoni"
+               title="<?=isset($alumnus['testimoni'])?'Edit':'Tulis'?> testimoni anda tentang KHARISMA"
+               style="margin:15px;">
+              <img src="/assets/img/edit16.png"> <?=isset($alumnus['testimoni'])?'edit':'tulis'?> testimoni
             </a>
 
 

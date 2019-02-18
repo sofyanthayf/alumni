@@ -17,15 +17,20 @@
           <i class="ion-android-checkmark-circle"></i> Testimoni Alumni
         </h3>
 
-        <form class="formt" id="formtesti" action="/submittestimoni" method="post">
+        <form class="formt" id="formtesti"  method="post"
+              action="/<?= empty($alumnus['testimoni']) ? 'submittestimoni' : 'updatetestimoni' ?>">
           <div class="text-primary">
             Tuliskan testimoni Anda tentang STMIK KHARISMA Makassar
           </div>
 
+          <?php if ( !empty($alumnus['testimoni']) ): ?>
+            <input type="hidden" name="idtestimoni" value="<?=$alumnus['testimoni']['id']?>">
+          <?php endif; ?>
+
           <div class="form-group">
             <textarea class="form-control" name="testi" id="testi" rows="6"
                       placeholder="-- Tuliskan testimoni singkat Anda sebagai alumni --"
-                      required><?= !empty($testimoni) ? $testimoni : '' ?></textarea>
+                      required><?= !empty($alumnus['testimoni']) ? $alumnus['testimoni']['testimoni'] : '' ?></textarea>
           </div>
           <div class="small">
             maksimal <span id="maxc"></span> huruf
@@ -35,7 +40,9 @@
           </div>
 
           <div class="text-right">
-            <button class="btn-primary" type="submit" id="btsubmit" disabled> Simpan </button>
+            <button class="btn-primary" type="submit" id="btsubmit" disabled>
+              <?= !empty($alumnus['testimoni']) ? 'Update' : 'Simpan' ?>
+            </button>
           </div>
 
         </form>
@@ -64,12 +71,11 @@ $("#testi").keyup(function(){
     $("#testi").val( (text).substring(0, chars-1) );
     chars = maxc;
   }
-
-  $("#chars").html( (maxc - chars) );
   dispCounter();
 })
 
 function dispCounter(){
+  $("#chars").html( (maxc - chars) );
   if( chars != 0 ){
     $("#ccounter").show();
 

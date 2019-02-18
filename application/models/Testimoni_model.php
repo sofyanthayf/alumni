@@ -6,6 +6,11 @@ class Testimoni_model extends CI_Model {
         parent::__construct();
     }
 
+    public function getTestimoni($email)
+    {
+      $this->db->where('email', $email);
+      return $this->db->get('testimoni')->row_array();
+    }
 
 
 }

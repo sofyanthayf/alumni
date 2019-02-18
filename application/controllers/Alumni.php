@@ -10,6 +10,7 @@ class Alumni extends CI_Controller {
     parent::__construct();
     $this->load->model('alumni_model');
     $this->load->model('mitra_model');
+    $this->load->model('testimoni_model');
 
       //
       // $con=new mysqli($this->db->hostname,$this->db->username,$this->db->password,$this->db->database);

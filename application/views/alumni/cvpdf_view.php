@@ -57,8 +57,12 @@
 
         <td style="width:200px; padding:15px;">
           <?php
-            // untuk dompdf tanda '/' di depan path foto harus dihilangkan 
-            $foto = substr( $alumnus['foto'],1, strlen($alumnus['foto'])-1 )
+            // untuk dompdf tanda '/' di depan path foto harus dihilangkan
+            if( strpos( $alumnus['foto'], 'siska.kharisma.ac.id', 0 ) !== false ){
+              $foto = $alumnus['foto'];
+            } else {
+              $foto = substr( $alumnus['foto'], 1 , strlen($alumnus['foto'])-1 );
+            }
            ?>
           <img src="<?=$foto?>" class="foto">
         </td>

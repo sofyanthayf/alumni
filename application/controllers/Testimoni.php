@@ -9,6 +9,7 @@ class Testimoni extends CI_Controller {
   function __construct(){
     parent::__construct();
     $this->load->model('alumni_model');
+    $this->load->model('testimoni_model');
   }
 
   public function index()
@@ -33,4 +34,15 @@ class Testimoni extends CI_Controller {
     $insert = $this->alumni_model->prosesInsert('testimoni',$data);
     redirect('/alumni/'.$this->session->uid,'refresh');
   }
+
+  public function update_testimoni()
+  {
+    $where = array( 'id' => $this->input->post('idtestimoni') );
+    $data = array( 'testimoni' => $this->input->post('testi') );
+
+    $update = $this->alumni_model->prosesUpdate('testimoni',$data, $where);
+    redirect('/alumni/'.$this->session->uid,'refresh');
+  }
+
+
 }

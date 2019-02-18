@@ -184,6 +184,7 @@ class Alumni_model extends CI_Model {
       $this->alumnus['pekerjaan'] = $this->GetDataRiwayatPekerjaan($nimhs);
       $this->alumnus['sertifikasi'] = $this->GetDataSertifikat($nimhs);
       $this->alumnus['karya'] = $this->getKarya($nimhs);
+      $this->alumnus['testimoni'] = $this->testimoni_model->getTestimoni( $this->session->email );
 
       return $this->alumnus;
     }
