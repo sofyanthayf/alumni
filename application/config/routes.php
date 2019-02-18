@@ -38,6 +38,7 @@ $route['alumni/hapuskarya/(:any)'] = 'alumni/hapus_karya/$1';
 
 $route['alumni/testmail'] = 'alumni/testmail';
 $route['alumni/pekerjaan'] = 'alumni/pekerjaan';
+$route['alumni/pekerjaan/(:any)'] = 'alumni/pekerjaan/$1';
 $route['alumni/pekerjaan/(:any)/(:any)'] = 'alumni/pekerjaan/$1/$2';
 $route['alumni/tambahpekerjaan'] = 'alumni/insert_pekerjaan';
 $route['alumni/updatepekerjaan'] = 'alumni/update_pekerjaan';
