@@ -70,13 +70,13 @@
         </div>
 
         <div class="form-group">
-          <label for="divisi_p1"><strong>Divisi / Bagian</strong></label>
+          <label for="divisi_p1"><strong>Divisi / Bagian*</strong></label>
           <input type="text" name="divisi_p1" class="form-control" id="divisi_p1"
-                 placeholder="divisi / bagian / unit kerja">
+                 placeholder="divisi / bagian / unit kerja" required>
         </div>
 
         <div class="form-group">
-          <label for="jabatan_p1"><strong>Jabatan</strong></label>
+          <label for="jabatan_p1"><strong>Jabatan*</strong></label>
           <input type="text" name="jabatan_p1" class="form-control" id="jabatan_p1"
                  placeholder="jabatan" required>
         </div>
