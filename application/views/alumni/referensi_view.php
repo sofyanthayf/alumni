@@ -78,7 +78,7 @@
         <div class="form-group">
           <label for="jabatan_p1"><strong>Jabatan</strong></label>
           <input type="text" name="jabatan_p1" class="form-control" id="jabatan_p1"
-                 placeholder="jabatan">
+                 placeholder="jabatan" required>
         </div>
         <br>
 
