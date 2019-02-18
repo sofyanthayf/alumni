@@ -49,13 +49,13 @@
         </div>
 
         <div class="form-group">
-          <label for="nama_p1"><strong>Nama Lengkap</strong></label>
+          <label for="nama_p1"><strong>Nama Lengkap*</strong></label>
           <input type="text" name="nama_p1" class="form-control" id="nama_p1"
                  placeholder="nama lengkap atasan (sebaiknya dengan gelar)" required>
         </div>
 
         <div class="form-group">
-          <label for="email_p1"><strong>Email</strong></label>
+          <label for="email_p1"><strong>Email*</strong></label>
           <input type="email" name="email_p1" class="form-control" id="email_p1"
                  placeholder="alamat email" required>
 
@@ -83,7 +83,7 @@
         <br>
 
         <h3>
-          <i class="ion-android-checkmark-circle"></i> Rekan Sejawat (2 orang)
+          <i class="ion-android-checkmark-circle"></i> Rekan Sejawat (1-2 orang)
         </h3>
         <p class="text-info"><small>
           Diutamakan mitra/rekan sejawat yang relatif lebih senior atau bagian HRD/PSDM
@@ -95,13 +95,13 @@
         </div>
 
         <div class="form-group">
-          <label for="nama_p2"><strong>Nama Lengkap</strong></label>
+          <label for="nama_p2"><strong>Nama Lengkap*</strong></label>
           <input type="text" name="nama_p2" class="form-control" id="nama_p2"
                  placeholder="nama lengkap rekan sejawat 1 (sebaiknya dengan gelar)" required>
         </div>
 
         <div class="form-group">
-          <label for="email_p2"><strong>Email</strong></label>
+          <label for="email_p2"><strong>Email*</strong></label>
           <input type="email" name="email_p2" class="form-control email" id="email_p2"
                  placeholder="alamat email" required>
 
@@ -129,20 +129,20 @@
         <br><hr>
 
         <div class="form-group">
-          <input type="radio" name="jkel_p3" value="L" required> Bapak &nbsp; / &nbsp;
-          <input type="radio" name="jkel_p3" value="P" required> Ibu
+          <input type="radio" name="jkel_p3" value="L"> Bapak &nbsp; / &nbsp;
+          <input type="radio" name="jkel_p3" value="P"> Ibu
         </div>
 
         <div class="form-group">
           <label for="nama_p3"><strong>Nama Lengkap</strong></label>
           <input type="text" name="nama_p3" class="form-control" id="nama_p3"
-                 placeholder="nama lengkap rekan sejawat 2 (sebaiknya dengan gelar)" required>
+                 placeholder="nama lengkap rekan sejawat 2 (optional)">
         </div>
 
         <div class="form-group">
           <label for="email_p3"><strong>Email</strong></label>
           <input type="email" name="email_p3" class="form-control" id="email_p3"
-                 placeholder="alamat email" required>
+                 placeholder="alamat email">
 
          <div class="alert alert-danger small" id="warn_email_p3" style="display:none;">
          </div>

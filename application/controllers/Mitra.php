@@ -12,6 +12,7 @@ class Mitra extends CI_Controller {
 		parent::__construct();
 		$this->load->model('mitra_model');
 		$this->load->model('alumni_model');
+		$this->load->model('testimoni_model');
 	}
 
   // public function formPenilaianKinerja($nimhs)
@@ -119,7 +120,7 @@ class Mitra extends CI_Controller {
   public function detailmitra( $id_mitra )
   {
     $data['public'] = true;
-    
+
     $data['mitra'] = $this->mitra_model->info_mitra( $id_mitra );
     $this->load->template( 'mitra/mitra_detail', $data );
   }

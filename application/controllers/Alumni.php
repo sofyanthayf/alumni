@@ -542,66 +542,70 @@ class Alumni extends CI_Controller {
     // untuk 3 contact person
     for($r=1 ; $r<=3 ; $r++){
 
-      $cpemail = $this->input->post('email_p'.$r);
-      $pass = random_string('alnum', 10);
+      if( !empty($this->input->post('email_p'.$r)) && !empty($this->input->post('nama_p'.$r)) ){
 
-      $id_penilaian = date('U') + 5 + $r;
-      $link = 'referensi/'.$id_penilaian.$cpmitra;
+        $cpemail = $this->input->post('email_p'.$r);
+        $pass = random_string('alnum', 10);
 
-// echo $cpemail." - ".$pass." - ".$link."<br>";
+        $id_penilaian = date('U') + 5 + $r;
+        $link = 'referensi/'.$id_penilaian.$cpmitra;
 
-      // jika contact person belum pernah terdaftar
-      if( !$this->mitra_model->cpRegistered( $cpemail, $cpmitra ) ){
+        // echo $cpemail." - ".$pass." - ".$link."<br>";
 
-        $datacp = array(
-          'id' => date('U')+$r,
-          'mitra' => $cpmitra,
-          'cabang_mitra' => $this->input->post('cabang'),
-          'email' => $cpemail,
-          'nama' => $this->input->post('nama_p'.$r),
-          'sex' => $this->input->post('jkel_p'.$r),
-          'nomor_hp' => $this->input->post('telp_p'.$r),
-          'divisi' => $this->input->post('divisi_p'.$r),
-          'jabatan' => $this->input->post('jabatan_p'.$r)
+        // jika contact person belum pernah terdaftar
+        if( !$this->mitra_model->cpRegistered( $cpemail, $cpmitra ) ){
+
+          $datacp = array(
+            'id' => date('U')+$r,
+            'mitra' => $cpmitra,
+            'cabang_mitra' => $this->input->post('cabang'),
+            'email' => $cpemail,
+            'nama' => $this->input->post('nama_p'.$r),
+            'sex' => $this->input->post('jkel_p'.$r),
+            'nomor_hp' => $this->input->post('telp_p'.$r),
+            'divisi' => $this->input->post('divisi_p'.$r),
+            'jabatan' => $this->input->post('jabatan_p'.$r)
+          );
+
+          $datausr = array(
+            'email' => $cpemail,
+            'status' => 1,
+            'password' => md5( $pass )
+          );
+
+          $insertcp = $this->alumni_model->prosesInsert('contact_person', $datacp);
+          $insertusr = $this->alumni_model->prosesInsert('users', $datausr);
+        }
+
+        $dataref = array(
+          'id_penilaian' => $id_penilaian,
+          'email_contactperson' => $cpemail,
+          'id_mitra' => $cpmitra,
+          'id_cabang' => $this->input->post('cabang'),
+          'nimhs' => $this->session->uid
         );
+        $insertref = $this->alumni_model->prosesInsert('penilaian_alumni',$dataref);
 
-        $datausr = array(
-          'email' => $cpemail,
-          'status' => 1,
-          'password' => md5( $pass )
-        );
 
-        $insertcp = $this->alumni_model->prosesInsert('contact_person', $datacp);
-        $insertusr = $this->alumni_model->prosesInsert('users', $datausr);
+        // kirim email
+        $contact['email'] = $cpemail;
+        $contact['pass'] = $pass;
+        $contact['link'] = base_url().$link;
+        $contact['nama'] = $this->input->post('nama_p'.$r);
+        $contact['jabatan'] = $this->input->post('jabatan_p'.$r);
+        $contact['perusahaan'] = $perusahaan;
+        $contact['sex'] = $this->input->post('jkel_p'.$r);
+        $contact['alumni'] = $alumnus['namamhs'];
+        $contact['divisialumni'] = $divisialumni;
+        $contact['cabangalumni'] = $cabangalumni;
+
+        $maildata['to'] = $cpemail;
+        $maildata['subject'] = "Referensi Karyawan";
+        $maildata['message'] = $this->load->view('emails/mohonpenilaian', $contact, true);;
+
+        $sent = $this->mylib->sendEmail( $maildata );
+
       }
-
-      $dataref = array(
-                  'id_penilaian' => $id_penilaian,
-                  'email_contactperson' => $cpemail,
-                  'id_mitra' => $cpmitra,
-                  'id_cabang' => $this->input->post('cabang'),
-                  'nimhs' => $this->session->uid
-                );
-      $insertref = $this->alumni_model->prosesInsert('penilaian_alumni',$dataref);
-
-
-      // kirim email
-      $contact['email'] = $cpemail;
-      $contact['pass'] = $pass;
-      $contact['link'] = base_url().$link;
-      $contact['nama'] = $this->input->post('nama_p'.$r);
-      $contact['jabatan'] = $this->input->post('jabatan_p'.$r);
-      $contact['perusahaan'] = $perusahaan;
-      $contact['sex'] = $this->input->post('jkel_p'.$r);
-      $contact['alumni'] = $alumnus['namamhs'];
-      $contact['divisialumni'] = $divisialumni;
-      $contact['cabangalumni'] = $cabangalumni;
-
-      $maildata['to'] = $cpemail;
-      $maildata['subject'] = "Referensi Karyawan";
-      $maildata['message'] = $this->load->view('emails/mohonpenilaian', $contact, true);;
-
-      $sent = $this->mylib->sendEmail( $maildata );
 
     }
 
