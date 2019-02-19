@@ -246,7 +246,7 @@ class User extends CI_Controller {
     $password = md5( $this->input->post('password') );
     $ipaddr = $this->input->ip_address();
 
-    $userlogin = $this->user_model->logi( $email, 0 );
+    $userlogin = $this->user_model->login( $email, 0 );
     if( $userlogin ){
 
       if( $userlogin->password != $password ) redirect( '/alumni/login/1');
