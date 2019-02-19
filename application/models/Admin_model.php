@@ -40,8 +40,8 @@ class Admin_model extends CI_Model {
       $nama = explode(" ", $data['nama_lengkap']);
       $n = 1;
       foreach ($nama as $value) {
-        if( str_len($value) > 3 ) {
-          $where .= $n==1 ? "OR ( namamhs LIKE '$value%' " : "OR namamhs LIKE '$value%' ";          
+        if( strlen($value) > 3 ) {
+          $where .= $n==1 ? "OR ( namamhs LIKE '$value%' " : "OR namamhs LIKE '$value%' ";
         }
         $n++;
       }

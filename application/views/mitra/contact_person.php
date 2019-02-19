@@ -41,8 +41,8 @@
             <a class="btn btn-light btn-block" href="#" title="Penyesuaian Data" style="margin:15px;">
               <img src="/assets/img/edit16.png"> edit data
             </a>
-            <a class="btn btn-light btn-block" href="#" title="Ganti Email, Ganti Password" style="margin:15px;">
-              <img src="/assets/img/user16.png"> update akun
+            <a class="btn btn-light btn-block" href="/gantipassword" title="Ganti Password" style="margin:15px;">
+              <img src="/assets/img/user16.png"> ganti password
             </a>
 
         <?php

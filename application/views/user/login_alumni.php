@@ -34,7 +34,7 @@
           </div>
           <div class="text-primary small">
             <p>
-              Alumni yang masih menggunakan akun email <strong>namamahasiswa_aa@kharisma.ac.id</strong> silahkan
+              Alumni yang masih menggunakan akun email <strong>namamahasiswa_NN@kharisma.ac.id</strong> silahkan
               melakukan mekanisme <a href="/lupapassword"><strong>Lupa Password</strong></a>, bila tidak, silahkan
               mengajukan <a href="validasi"><strong>Request Validasi Alumni</strong></a>
             </p>
