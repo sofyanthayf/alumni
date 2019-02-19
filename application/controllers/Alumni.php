@@ -426,7 +426,7 @@ class Alumni extends CI_Controller {
                 'kodepos_kantor_pusat' => $this->input->post('kodeposkp'),
                 'website' => $this->input->post('website')
               );
-        $insertkp = $this->alumni_model->prosesInsert('mitra_alumni',$datakp);
+        $insertkp = $this->alumni_model->prosesInsert('mitra',$datakp);
     }
 
     // tambah kantor cabang
