@@ -246,7 +246,7 @@ class User extends CI_Controller {
     $password = md5( $this->input->post('password') );
     $ipaddr = $this->input->ip_address();
 
-    $userlogin = $this->user_model->login_alumni( $email );
+    $userlogin = $this->user_model->logi( $email, 0 );
     if( $userlogin ){
 
       if( $userlogin->password != $password ) redirect( '/alumni/login/1');
@@ -271,7 +271,7 @@ class User extends CI_Controller {
     $password = md5( $this->input->post('password') );
     $ipaddr = $this->input->ip_address();
 
-    $userlogin = $this->user_model->login_mitra( $email );
+    $userlogin = $this->user_model->login( $email, 1 );
 
     if( $userlogin ){
 
@@ -292,6 +292,41 @@ class User extends CI_Controller {
 
     } else {
       redirect( '/mitra/login/1');
+    }
+  }
+
+
+  public function form_login_admin( $stat = 0 )
+  {
+    if( isset( $this->session->uid ) ) redirect('/admin');
+
+    $data['public'] = true;
+    $data['status'] = $stat;
+    $this->load->template('admin/login_admin', $data);
+  }
+
+  public function login_admin()
+  {
+    $email = $this->input->post('email');
+    $password = md5( $this->input->post('password') );
+    $ipaddr = $this->input->ip_address();
+
+    $userlogin = $this->user_model->login( $email, 9 );
+    if( $userlogin ){
+
+      if( $userlogin->password != $password ) redirect( '/admin/login/1');
+
+      $user = array( 'uid' => $userlogin->nidn,
+                     'email' => $userlogin->email,
+                     'who' => 'ad'
+                );
+
+      $this->session->set_userdata( $user );
+      $this->user_model->update_visits($email, $ipaddr);
+      redirect( '/admin');
+
+    } else {
+      redirect( '/admin/login/1');
     }
   }
 

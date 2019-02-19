@@ -78,5 +78,15 @@ $route['pendidikan_alumni'] = 'pendidikan';
 $route['cv_alumni'] = 'cv';
 
 
+$route['admin'] = 'admin';
+$route['admin/login'] = 'user/form_login_admin';
+$route['admin/login/(:any)'] = 'user/form_login_admin/$1';
+$route['admin/logedin'] = 'user/login_admin';
+$route['admin/validasialumni'] = 'admin/validasi_alumni';
+$route['admin/validasialumni/(:any)'] = 'admin/validasi_alumni/$1';
+$route['admin/submitvalidasi'] = 'admin/submit_validasi';
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

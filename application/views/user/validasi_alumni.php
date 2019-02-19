@@ -21,7 +21,7 @@
         <table class="table">
           <tr>
             <td class="datafields"><label>Email<font color="red">*</font> </label></td>
-            <td><input type="text" class="form-control" name="email" required></td>
+            <td><input type="text" class="form-control" name="email" id="email" required></td>
           </tr>
           <tr>
             <td>
@@ -37,8 +37,8 @@
             <td><input type="number" class="form-control" name="nim" onkeypress="if(this.value.length==8) return false;"></td>
           </tr>
           <tr>
-            <td class="datafields">Nama Lengkap:</td>
-            <td><input type="text" class="form-control" name="nama_lengkap"></td>
+            <td class="datafields">Nama Lengkap<font color="red">*</font>:</td>
+            <td><input type="text" class="form-control" name="nama_lengkap" required></td>
           </tr>
           <tr>
             <td class="datafields">Program Studi:</td>
@@ -65,7 +65,9 @@
             <td><input type="text" class="form-control" name="judul_skripsi"></td>
           </tr>
         </table>
-        <div class="text-right"><button type="submit" onclick="validasiAlumni()">Submit</button></div>
+        <div class="text-right">
+          <button type="submit" id="btsubmit" onclick="validasiAlumni()">Submit</button>
+        </div>
 
       </div>
 
@@ -99,6 +101,25 @@ $(function(){
   });
 
 });
+
+$("#email").change(function(){
+  var email = $(this).val();
+  if( email != ''){
+    email = email.replace(".", "__dot__");
+    email = email.replace("@", "__at__");
+    $.get("/api_alumni/emailvalid/m/"+email, function(result){
+      if(result.email.registered == 1){
+        alert('Anda telah melakukan request sebelumnya dan sedang dalam daftar tunggu untuk divalidasi oleh admin, informasi akan dikirimkan ke alamat email Anda')
+        $("#btsubmit").prop('disabled', true);
+      } else {
+        $("#btsubmit").prop('disabled', false);
+      }
+    });
+  } else {
+    $("#warn_email_" + p).html('');
+    $("#warn_email_" + p).hide();
+  }
+})
 
 function daftarprodi(){
   var lprodi="";

@@ -15,6 +15,7 @@ class Mylib
   public $status_kerja;
   public $daftar_kota;
   public $bidang_keahlian;
+  public $status_validasi;
 
   function __construct() {
       $this->CI =& get_instance();
@@ -101,6 +102,14 @@ class Mylib
     $this->daftar_kota = $this->daftarKota();
     $this->bidang_keahlian = $this->daftarKeahlian();
 
+    $this->status_validasi = array(
+              0 => 'pengajuan validasi',
+              1 => 'data/riwayat perkuliahan tidak ditemukan',
+              2 => 'masih perlu data tambahan',
+              7 => 'tercatat belum lulus',
+              8 => 'sudah terdaftar, hanya lupa password',
+              9 => 'disetujui'
+          );
   }
 
 

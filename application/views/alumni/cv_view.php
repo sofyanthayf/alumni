@@ -21,6 +21,16 @@
                style="margin:15px;">
               <img src="/assets/img/edit16.png"> <?=isset($alumnus['testimoni'])?'edit':'tulis'?> testimoni
             </a>
+            <br>
+            <p class="text-primary small">
+              Kelengkapan dan validitas data yang Anda berikan<br>
+              pada Layanan Alumni ini akan berdampak<br>
+              langsung maupun tidak langsung pada<br>
+              peningkatan kualitas dan <strong>peringkat akreditasi</strong><br>
+              STMIK KHARISMA Makassar,<br>
+              yang pada akhirnya juga akan berdampak<br>
+              pada karir Anda sebagai alumni
+            </p>
 
 
         <?php

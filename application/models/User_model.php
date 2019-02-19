@@ -6,6 +6,18 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 
+    public function login($email, $stat)
+  	{
+  		$this->db->where('users.email', $email);
+      $this->db->where('users.status', $stat);
+
+      if( $stat == 0 ) $this->db->join('alumni', 'alumni.email=users.email', 'LEFT');
+      if( $stat == 1 ) $this->db->join('contact_person', 'contact_person.email=users.email', 'LEFT');
+      if( $stat == 9 ) $this->db->join('admin', 'admin.email=users.email', 'LEFT');
+
+      return $this->db->get('users')->row();
+  	}
+
     public function login_alumni($email)
   	{
   		$this->db->where('users.email', $email);
@@ -19,6 +31,14 @@ class User_model extends CI_Model {
       $this->db->where('users.email', $email);
       $this->db->where('users.status', '1');
       $this->db->join('contact_person', 'contact_person.email=users.email', 'LEFT');
+      return $this->db->get('users')->row();
+  	}
+
+    public function login_admin($email)
+  	{
+      $this->db->where('users.email', $email);
+      $this->db->where('users.status', '9');
+      $this->db->join('admin', 'admin.email=users.email', 'LEFT');
       return $this->db->get('users')->row();
   	}
 
@@ -72,6 +92,18 @@ class User_model extends CI_Model {
         return 1;
       }
 
+      return 0;
+    }
+
+
+    public function validasiWaitingList( $email )
+    {
+      $this->db->where('email', $email);
+      $this->db->where('validasi', 0);
+      $query = $this->db->get('validasi_alumni');
+      if( $query->num_rows() > 0 ){
+        return 1;
+      }
       return 0;
     }
 
