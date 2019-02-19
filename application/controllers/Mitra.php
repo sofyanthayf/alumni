@@ -178,7 +178,7 @@ class Mitra extends CI_Controller {
         $data['tanggal_publish'] = date('Y-m-d');
     }
 
-    $insert = $this->mitra_model->prosesUpdate('penilaian_alumni', $data, $where);
+    $update = $this->mitra_model->prosesUpdate('penilaian_alumni', $data, $where);
 
     redirect('/contactperson','refresh');
   }
@@ -186,7 +186,6 @@ class Mitra extends CI_Controller {
 
   public function detail_cp()
   {
-
     $data['cp'] = $this->mitra_model->cpRegisteredById( $this->session->uid );
     $data['mitra'] = $this->mitra_model->info_mitra( $data['cp']['mitra'] );
 
@@ -199,7 +198,33 @@ class Mitra extends CI_Controller {
     }
 
     $this->load->template('mitra/contact_person', $data);
+  }
 
+  public function edit_cp()
+  {
+    $data['cp'] = $this->mitra_model->cpRegisteredById( $this->session->uid );
+    $data['mitra'] = $this->mitra_model->info_mitra( $data['cp']['mitra'] );
+
+    if( $data['cp']['id'] != $this->session->uid ){
+      redirect("/");
+    }
+
+    $this->load->template('mitra/cp_edit', $data);
+  }
+
+  public function update_cp()
+  {
+    $data = array(
+              'nama' => $this->input->post('nama'),
+              'jabatan' => $this->input->post('jabatan'),
+              'divisi' => $this->input->post('divisi'),
+              'nomor_hp' => $this->input->post('nomorhp'),
+            );
+
+    $where = array( 'id' => $this->session->uid );
+    $update = $this->mitra_model->prosesUpdate('contact_person', $data, $where);
+
+    redirect('/contactperson','refresh');
   }
 
 

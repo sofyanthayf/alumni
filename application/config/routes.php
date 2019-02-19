@@ -58,6 +58,8 @@ $route['alumni/(:any)/(:any)'] = 'alumni/detailalumni/$1/$2';   // $2 = 'pdf'
 
 $route['mitra/(:any)'] = 'mitra/detailmitra/$1';
 $route['contactperson'] = 'mitra/detail_cp';
+$route['contactperson/edit'] = 'mitra/edit_cp';
+$route['contactperson/update'] = 'mitra/update_cp';
 
 $route['referensi/(:any)'] = 'mitra/penilaian_kinerja/$1';
 $route['referensi_update'] = 'mitra/insert_penilaian';
