@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
     $this->load->model('alumni_model');
 
     $this->session->admin = true;
-    
+
     if($this->session->who != 'ad') redirect('/');
   }
 
@@ -64,16 +64,15 @@ class Admin extends CI_Controller {
       $alumnidata = array( 'email' => $data['request']['email'] );
       $where = array( 'nimhs'=> $data['nimhs'] );
       $update = $this->alumni_model->prosesUpdate('alumni',$alumnidata, $where);
-
-      $requestdata = array(
-              'validasi' => $data['validasi'],
-              'tgl_validasi' => date('Y-m-d'),
-              'validator' => $this->session->uid
-            );
-      $requestwhere = array( 'id' => $data['request']['id'] );
-      $update = $this->alumni_model->prosesUpdate('validasi_alumni',$requestdata, $requestwhere);
-
     }
+
+    $requestdata = array(
+                      'validasi' => $data['validasi'],
+                      'tgl_validasi' => date('Y-m-d'),
+                      'validator' => $this->session->uid
+                    );
+    $requestwhere = array( 'id' => $data['request']['id'] );
+    $update = $this->alumni_model->prosesUpdate('validasi_alumni',$requestdata, $requestwhere);
 
 
     // kirim email
