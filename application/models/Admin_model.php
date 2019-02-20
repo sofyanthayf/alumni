@@ -29,7 +29,8 @@ class Admin_model extends CI_Model {
     if( $query->num_rows() != 0 ){
       // jika ada berarti sudah terdaftar
       $user = $query->result_array();
-      $user[0]['validasi'] = '8';  // sudah terdaftar
+      if( $user[0]['status']=='0') $user[0]['validasi'] = '8';  // sudah terdaftar
+      if( $user[0]['status']=='1') $user[0]['validasi'] = '3';  // sudah terdaftar sebagai CP
 
     } else {
       $where = "email='".$data['email']."' ";
@@ -40,8 +41,9 @@ class Admin_model extends CI_Model {
       $nama = explode(" ", $data['nama_lengkap']);
       $n = 1;
       foreach ($nama as $value) {
-        if( strlen($value) > 3 ) {
+        if( strlen($value) >= 3 ) {
           $where .= $n==1 ? "OR ( namamhs LIKE '$value%' " : "OR namamhs LIKE '$value%' ";
+          // $where .= "OR namamhs LIKE '$value%' " ;
         }
         $n++;
       }

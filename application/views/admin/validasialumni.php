@@ -122,9 +122,12 @@
                    value="<?=!empty($request['nimhs']?$request['nimhs']:'')?>">
 
             <input type="hidden" id="validasi" name="validasi"
-                   value="<?=(count($prakira)==1 && $prakira[0]['validasi']==8 ) ? $prakira[0]['validasi'] : 0?>">
+                   value="<?= count($prakira)==1 ? $prakira[0]['validasi'] : 0?>">
 
-          <?php if (!empty($prakira) && $prakira[0]['validasi']!= 8 ): ?>
+          <?php
+            $kodeval = array(1,2,7);
+            if (!empty($prakira) && in_array($prakira[0]['validasi'],$kodeval) ): ?>
+
             <h3><i class="ion-android-checkmark-circle"></i> Perkiraan data alumni yang cocok</h3>
 
             <table class="table">
@@ -152,6 +155,13 @@
               <?php endforeach; ?>
               <tr><td colspan="4"></td></tr>
             </table>
+
+          <?php elseif( !empty($prakira) && $prakira[0]['validasi'] == 3): ?>
+            <p class="text-primary">
+              Email yang dimasukkan telah terdaftar/didaftarkan sebagai contact person perusahaan mitra
+              oleh rekan sejawatnya. Email sebagai alumni harus berbeda dengan email sebagai Contact
+              Person Perusahaan Mitra
+            </p>
 
           <?php elseif( !empty($prakira) && $prakira[0]['validasi'] == 8): ?>
             <p class="text-primary">

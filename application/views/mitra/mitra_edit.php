@@ -23,6 +23,9 @@
 
       <div class="col-lg-8 content">
         <h2><?=$mitra['nama_perusahaan']?></h2>
+
+        <form class="form" action="/mitra/simpanupdate" method="post">
+
         <h3>
           <i class="ion-android-checkmark-circle"></i> Updata Data Perusahaan
         </h3>
@@ -120,6 +123,8 @@
             </td>
           </tr>
         </table>
+
+      </form>
 
       </div>
     </div>
