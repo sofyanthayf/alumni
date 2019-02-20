@@ -112,7 +112,8 @@
             <td></td>
             <td>
               <div class="text-right">
-                <a href="#" title="Ajukan usulan penyesuaian data perusahaan" id="clickedit">
+                <a href="/mitra/usulanedit/<?=$mitra['id_mitra']?>"
+                   title="Ajukan usulan penyesuaian data perusahaan" id="clickedit">
                   <img src="/assets/img/edit16.png" alt="Edit Data"> Edit/Penyesuaian Data Perusahaan
                 </a>
               </div>

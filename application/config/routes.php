@@ -56,7 +56,14 @@ $route['updatetestimoni'] = 'testimoni/update_testimoni';
 $route['alumni/(:any)'] = 'alumni/detailalumni/$1';
 $route['alumni/(:any)/(:any)'] = 'alumni/detailalumni/$1/$2';   // $2 = 'pdf'
 
+$route['mitra/usulanedit/(:any)'] = 'mitra/edit_mitra/$1';
+$route['mitra/simpanupdate'] = 'mitra/simpanupdate_mitra';
+$route['mitra/usulaneditcabang/(:any)'] = 'mitra/edit_cabang/$1';
+$route['mitra/simpanupdatecabang'] = 'mitra/simpanupdate_cabang';
+$route['mitra/updatelogo/(:any)'] = 'mitra/update_logo/$1';
+$route['mitra/uploadlogo'] = 'mitra/upload_logo';
 $route['mitra/(:any)'] = 'mitra/detailmitra/$1';
+
 $route['contactperson'] = 'mitra/detail_cp';
 $route['contactperson/edit'] = 'mitra/edit_cp';
 $route['contactperson/update'] = 'mitra/update_cp';

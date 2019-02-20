@@ -29,7 +29,7 @@ class Admin_model extends CI_Model {
     if( $query->num_rows() != 0 ){
       // jika ada berarti sudah terdaftar
       $user = $query->result_array();
-      $user['validasi'] = '8';  // sudah terdaftar
+      $user[0]['validasi'] = '8';  // sudah terdaftar
 
     } else {
       $where = "email='".$data['email']."' ";

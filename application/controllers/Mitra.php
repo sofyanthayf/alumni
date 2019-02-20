@@ -125,6 +125,30 @@ class Mitra extends CI_Controller {
     $this->load->template( 'mitra/mitra_detail', $data );
   }
 
+  public function edit_mitra( $id_mitra )
+  {
+    $data['mitra'] = $this->mitra_model->info_mitra( $id_mitra );
+    $data['industri'] = $this->mitra_model->daftarIndustri();
+    $this->load->template( 'mitra/mitra_edit', $data );
+  }
+
+  public function update_logo( $id_mitra )
+  {
+    $data['mitra'] = $this->mitra_model->info_mitra( $id_mitra );
+    $this->load->template( 'mitra/update_logo', $data );
+  }
+
+  public function upload_logo()
+  {
+    $ext = pathinfo($_FILES['filelogo']['name'], PATHINFO_EXTENSION);
+    $path = './assets/img/mitra/';
+
+    $file = $this->input->post('id_mitra') . "." . $ext;
+    move_uploaded_file( $_FILES['filelogo']['tmp_name'], $path.$file );
+
+    redirect('/mitra/usulanedit/'.$this->input->post('id_mitra') , 'refresh');
+  }
+
 
   public function penilaian_kinerja($kode)
   {

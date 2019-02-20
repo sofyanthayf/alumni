@@ -123,7 +123,7 @@
 
             <input type="hidden" id="validasi" name="validasi"
                    value="<?=(count($prakira)==1 && $prakira[0]['validasi']==8 ) ? $prakira[0]['validasi'] : 0?>">
-
+<?php var_dump($prakira) ?>
           <?php if (!empty($prakira) && $prakira[0]['validasi']!= 8 ): ?>
             <h3><i class="ion-android-checkmark-circle"></i> Perkiraan data alumni yang cocok</h3>
 
