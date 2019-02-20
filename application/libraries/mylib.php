@@ -106,8 +106,9 @@ class Mylib
               0 => 'pengajuan validasi',
               1 => 'data/riwayat perkuliahan tidak ditemukan',
               2 => 'masih perlu data tambahan',
+              3 => 'email terdaftar sebagai contact person mitra',
               7 => 'tercatat belum lulus',
-              8 => 'sudah terdaftar, hanya lupa password',
+              8 => 'email sudah terdaftar, hanya lupa password',
               9 => 'disetujui'
           );
   }

@@ -107,5 +107,16 @@ class User_model extends CI_Model {
       return 0;
     }
 
+    public function validasiEmailCP( $email )
+    {
+      $this->db->where('email', $email);
+      $this->db->where('status', 1);
+      $query = $this->db->get('users');
+      if( $query->num_rows() > 0 ){
+        return 1;
+      }
+      return 0;
+    }
+
 
 }

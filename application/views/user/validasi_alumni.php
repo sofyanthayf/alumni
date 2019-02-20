@@ -20,8 +20,13 @@
 
         <table class="table">
           <tr>
-            <td class="datafields"><label>Email<font color="red">*</font> </label></td>
-            <td><input type="text" class="form-control" name="email" id="email" required></td>
+            <td class="datafields" width="150px">
+              <label>Email<font color="red">*</font> </label>
+            </td>
+            <td>
+              <input type="text" class="form-control" name="email" id="email" required>
+              <div class="alert alert-danger small" id="warn_email" style="display:none;">
+            </td>
           </tr>
           <tr>
             <td>
@@ -66,7 +71,7 @@
           </tr>
         </table>
         <div class="text-right">
-          <button type="submit" id="btsubmit" onclick="validasiAlumni()">Submit</button>
+          <button type="submit" class="btn btn-primary" id="btsubmit" onclick="validasiAlumni()">Submit</button>
         </div>
 
       </div>
@@ -107,18 +112,32 @@ $("#email").change(function(){
   if( email != ''){
     email = email.replace(".", "__dot__");
     email = email.replace("@", "__at__");
-    $.get("/api_alumni/emailvalid/m/"+email, function(result){
-      if(result.email.registered == 1){
-        alert('Anda telah melakukan request sebelumnya dan sedang dalam daftar tunggu untuk divalidasi oleh admin, informasi akan dikirimkan ke alamat email Anda')
+
+    $.get("/api_alumni/emailwaiting/m/"+email, function(result){
+      if(result.email.waiting == 1){
+        $("#warn_email").html('Anda telah melakukan request sebelumnya dan sedang dalam daftar tunggu untuk divalidasi oleh admin, informasi akan dikirimkan ke alamat email Anda');
+        $("#warn_email").show();
         $("#btsubmit").prop('disabled', true);
       } else {
         $("#btsubmit").prop('disabled', false);
       }
     });
+
+    $.get("/api_alumni/emailregistered/m/"+email, function(result){
+      if(result.email.registered == 1){
+        $("#warn_email").html('Email yang Anda masukkan telah didaftarkan sebagai Contact Person dari salah satu Perusahaan Mitra, harap menggunakan email yang berbeda sebagai alumni ');
+        $("#warn_email").show();
+        $("#btsubmit").prop('disabled', true);
+      } else {
+        $("#btsubmit").prop('disabled', false);
+      }
+    });
+
   } else {
-    $("#warn_email_" + p).html('');
-    $("#warn_email_" + p).hide();
+    $("#warn_email").html('');
+    $("#warn_email").hide();
   }
+
 })
 
 function daftarprodi(){

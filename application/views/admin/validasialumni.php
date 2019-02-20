@@ -53,7 +53,7 @@
         <?php
           } else {
         ?>
-        <div class="col-lg-6 content">
+        <div class="col-lg-8 content">
           <h2>Validasi Alumni</h2>
           <h3><i class="ion-android-checkmark-circle"></i> Data Entri</h3>
 

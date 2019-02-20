@@ -52,6 +52,30 @@
       <?php
       break;
 
+    case '3':
+      ?>
+
+      <p>
+        Mohon maaf karena email yang anda masukkan telah terdaftar/didaftarkan sebagai Contact Person
+        dari Perusahaan Mitra oleh alumni yang lain (yang mungkin bekerja diperusahaan mitra yang sama
+        dengan Anda), sehingga permintaan validasi Anda, untuk sementara, belum dapat kami lanjutkan.
+      </p>
+      <p>
+        Email yang digunakan sebagai Alumni harus berbeda dengan email yang digunakan sebagai
+        Contact Person Perusahaan Mitra, karena status user divalidasi berdasarkan email dan keduanya
+        memiliki kapabilitas yang berbeda dalam sistem Layanan Alumni kami. 
+      </p>
+      <p>
+        Silahkan mengajukan permintaan validasi alumni kembali dengan menggunakan alamat email Anda yang lain.
+      </p>
+      <p>
+        Besar harapan kami untuk dapat menghimpun seluruh alumni dan saling memberi manfaat dalam Layanan Alumni
+        STMIK KHARISMA Makassar.
+      </p>
+
+      <?php
+      break;
+
     case '7':
       ?>
 

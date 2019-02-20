@@ -17,7 +17,7 @@ class Api_alumni extends REST_Controller {
   	$this->load->model('user_model');
   }
 
-  public function emailvalid_get()
+  public function emailwaiting_get()
   {
     $m = $this->get('m');
     $m = str_replace( '__dot__', '.', $m );
@@ -25,7 +25,20 @@ class Api_alumni extends REST_Controller {
 
     $email = array();
     $email['address'] = $m;
-    $email['registered'] = $this->user_model->validasiWaitingList( $email['address'] );
+    $email['waiting'] = $this->user_model->validasiWaitingList( $email['address'] );
+
+    $this->response( [ "email" => $email ] , 200  );
+  }
+
+  public function emailregistered_get()
+  {
+    $m = $this->get('m');
+    $m = str_replace( '__dot__', '.', $m );
+    $m = str_replace( '__at__', '@', $m );
+
+    $email = array();
+    $email['address'] = $m;
+    $email['registered'] = $this->user_model->validasiEmailCP( $email['address'] );
 
     $this->response( [ "email" => $email ] , 200  );
   }
