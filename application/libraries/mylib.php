@@ -111,6 +111,7 @@ class Mylib
               8 => 'email sudah terdaftar, hanya lupa password',
               9 => 'disetujui'
           );
+  
   }
 
 
