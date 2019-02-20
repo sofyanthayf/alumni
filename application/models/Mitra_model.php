@@ -110,7 +110,7 @@ class Mitra_model extends CI_Model {
 
     public function prosesInsert($table_name,$data)
     {
-      $insert = $this->db->insert('penilaian_alumni',$data);
+      $insert = $this->db->insert($table_name,$data);
       return $insert;
     }
 

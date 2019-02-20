@@ -127,9 +127,22 @@ class Mitra extends CI_Controller {
 
   public function edit_mitra( $id_mitra )
   {
+    $data['public'] = true;
+
     $data['mitra'] = $this->mitra_model->info_mitra( $id_mitra );
     $data['industri'] = $this->mitra_model->daftarIndustri();
     $this->load->template( 'mitra/mitra_edit', $data );
+  }
+
+  public function simpanupdate_mitra()
+  {
+    $data = $this->input->post();
+    $data['request_id'] = date('U');
+    $data['request_cp'] = $this->session->uid;
+    var_dump( $data );
+
+    $insert = $this->mitra_model->prosesInsert('mitra_update', $data );
+    redirect('/contactperson' );
   }
 
   public function update_logo( $id_mitra )
