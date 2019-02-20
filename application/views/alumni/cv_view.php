@@ -220,6 +220,13 @@
   }
  ?>
           <tr>
+            <td class="datafields" width='180px'>Personal Website:</td>
+            <td>
+              <input type="text" class="form-control editable" name="urlwebsite"
+                     value="<?=$alumnus['website']?>" readonly>
+            </td>
+          </tr>
+          <tr>
             <td class="datafields" width='180px'>Facebook:</td>
             <td>
               <input type="text" class="form-control editable" name="urlfacebook"

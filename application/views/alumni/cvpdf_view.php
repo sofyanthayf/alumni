@@ -280,6 +280,10 @@
     $sosmed = '';
 
     if( !empty($alumnus['linkedin']) ){
+      $sosmed .= '<img src="assets/img/web16.png"> &nbsp; '.$alumnus['website']."<br><br>";
+    }
+
+    if( !empty($alumnus['linkedin']) ){
       $sosmed .= '<img src="assets/img/linkedin.png"> &nbsp; '.$alumnus['linkedin']."<br><br>";
     }
 

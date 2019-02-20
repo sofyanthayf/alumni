@@ -153,6 +153,7 @@
 </section>
 
 <script type="text/javascript">
+
 $(function(){
   if( $("#ln_negara").val() != '' ){
     luarNegeri();

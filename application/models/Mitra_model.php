@@ -233,4 +233,12 @@ class Mitra_model extends CI_Model {
       return $query->row_array();
     }
 
+    public function alumniByMitra($id_mitra)
+    {
+      $this->db->where( 'mitra', $id_mitra );
+      $this->db->join( 'alumni', 'nimhs', 'LEFT' );
+      $query = $this->db->get('mitra_alumni');
+      return $query->result_array();
+    }
+
 }

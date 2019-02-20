@@ -39,7 +39,23 @@
                   <?php
                   foreach ($mitra['cabang'] as $key => $value) {
                     ?>
-                    <li>&nbsp; &nbsp; &nbsp;<?=$value['nama_cabang']?> (<?=$value['jml_alumni']?> alumni)</li>
+                    <li>
+                      &nbsp; &nbsp; &nbsp;
+                      <strong> <?=$value['nama_cabang']?></strong> (<?=$value['jml_alumni']?> alumni)
+
+                      <?php if ($this->session->who == 'ad'): ?>
+                        <br>&nbsp;
+                        <ul>
+                          <?php foreach ($alumni as $key => $value): ?>
+                            <li>&nbsp; &nbsp; &nbsp; &nbsp;
+                              <a href="/alumni/<?=$value['nimhs']?>"><?= $value['namamhs']?></a> 
+                            </li>
+                          <?php endforeach; ?>
+                        </ul>
+                        <br>&nbsp;
+                      <?php endif; ?>
+
+                    </li>
                     <?php
                   }
                   ?>

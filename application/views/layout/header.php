@@ -8,9 +8,9 @@
 <head>
   <meta charset="utf-8">
   <title>Alumni STMIK KHARISMA Makassar</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="alumni, stmik kharisma, makassar, perguruan tinggi, sekolah tinggi, mitra, perusahaan, lowongan kerja">
+  <meta name="description" content="Layanan Alumni STMIK KHARISMA Makassar, menjembatani komunikasi antara Alumni, Almamater, dan Perusahaan Mitra selaku Stakeholder, tiga unsur yang harus selalu bersinergi guna perbaikan dan peningkatan kualitas lulusan STMIK KHARISMA dan Pendidikan Tinggi Indonesia pada umumnya.">
 
   <!-- Favicons -->
   <link href="/assets/img/favicon.ico" rel="icon">

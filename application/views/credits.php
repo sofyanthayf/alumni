@@ -71,6 +71,7 @@
         <table class="table">
           <tr><td>Abdul Munir</td></tr>
           <tr><td>Alberthina Mual</td></tr>
+          <tr><td>Fadjri Aladin</td></tr>
           <tr><td>Faisal T. Supu</td></tr>
           <tr><td>Hamdan Arfandy</td></tr>
           <tr><td>Izmy Alwiyah Musdar</td></tr>
@@ -80,6 +81,7 @@
           <tr><td>Sri Mulyani</td></tr>
           <tr><td>Sukmawati</td></tr>
           <tr><td>Viena Vanesha Ananda</td></tr>
+          <tr><td>Yeni Saharaeni</td></tr>
           <tr><td></td></tr>
         </table>
 

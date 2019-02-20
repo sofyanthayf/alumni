@@ -122,6 +122,11 @@ class Mitra extends CI_Controller {
     $data['public'] = true;
 
     $data['mitra'] = $this->mitra_model->info_mitra( $id_mitra );
+
+    if( $this->session->who == 'ad' ) {
+      $data['alumni'] = $this->mitra_model->alumniByMitra( $id_mitra );
+    }
+
     $this->load->template( 'mitra/mitra_detail', $data );
   }
 
