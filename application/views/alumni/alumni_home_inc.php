@@ -33,25 +33,35 @@
         ?>
 
         <div class="member">
-          <div class="pic">
-            <a href="/alumni/<?=$key['nimhs']?>"><img src="<?=$key['foto']?>"></a>
+          <div class="pic" style="position:relative;">
+            <?php if (!empty($key['mitra'])): ?>
+              <span class="mitra-badge">
+                <a href="/mitra/<?=$key['mitra']?>" title="<?$key['namamitra']?>">
+                  <img src="<?=$key['logomitra']?>">
+                </a>
+              </span>
+            <?php endif; ?>
+            <a href="/alumni/<?=$key['nimhs']?>">
+              <img src="<?=$key['foto']?>">
+            </a>
           </div>
+
           <div class="details"><?=$key['namamhs']?></div>
 
-          <div class="social-media text-right">
+          <div class="social-media text-right" style="position:relative;">
             <?php
-              if( !empty($key['scholar']) ){
-                  echo '<a href="'.$key['scholar'].'" title="Google Scholar"
-                           target="_blank"><i class="ai ai-fw ai-google-scholar"></i></a>';
-              }
-              if( !empty($key['linkedin']) ){
-                  echo '<a href="'.$key['linkedin'].'" title="LinkedIn"
-                           target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>';
-              }
-              if( !empty($key['facebook']) ){
-                  echo '<a href="'.$key['facebook'].'" title="Facebook"
-                           target="_blank"><i class="fa fa-fw fa-facebook-square"></i></a>';
-              }
+            if( !empty($key['scholar']) ){
+              echo '<a href="'.$key['scholar'].'" title="Google Scholar"
+              target="_blank"><i class="ai ai-fw ai-google-scholar"></i></a>';
+            }
+            if( !empty($key['linkedin']) ){
+              echo '<a href="'.$key['linkedin'].'" title="LinkedIn"
+              target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a>';
+            }
+            if( !empty($key['facebook']) ){
+              echo '<a href="'.$key['facebook'].'" title="Facebook"
+              target="_blank"><i class="fa fa-fw fa-facebook-square"></i></a>';
+            }
             ?>
           </div>
         </div>

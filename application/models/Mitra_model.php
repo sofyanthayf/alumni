@@ -155,10 +155,13 @@ class Mitra_model extends CI_Model {
     {
       $logomitrajpg = '/assets/img/mitra/' . $id_mitra . ".jpg";
       $logomitrapng = '/assets/img/mitra/' . $id_mitra . ".png";
-      if( file_exists( FCPATH . $logomitrajpg ) ) {
-        $logo = $logomitrajpg ;
-      } else if ( file_exists( FCPATH . $logomitrapng ) )  {
-        $logo = $logomitrapng;
+      $logomitragif = '/assets/img/mitra/' . $id_mitra . ".gif";
+      if( file_exists( FCPATH . $logomitrapng ) ) {
+        $logo = $logomitrapng ;
+      } else if ( file_exists( FCPATH . $logomitragif ) )  {
+        $logo = $logomitragif;
+      } else if ( file_exists( FCPATH . $logomitrajpg ) )  {
+        $logo = $logomitrajpg;
       } else {
         $logo = "";
       }

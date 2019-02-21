@@ -691,6 +691,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 5px;
 }
 
+.mitra-badge {
+  position: absolute;
+  max-width: 55px;
+  /* max-height: 40px;  */
+  display: block;
+  left: 5px;
+  bottom: 5px;
+}
+
 
 /* Our Portfolio Section
 --------------------------------*/

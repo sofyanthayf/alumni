@@ -161,6 +161,14 @@ class Alumni_model extends CI_Model {
 
     $a = 0;
     foreach ($alumni as $key => $value) {
+      $alumnus = $this->alumnus( $alumni[$a]['nimhs'] );
+      foreach ($alumnus['pekerjaan'] as $key => $value) {
+        if(empty($value['tanggal_akhir'])){
+          $alumni[$a]['mitra'] = $value['mitra'];
+          $alumni[$a]['namamitra'] = $value['nama_perusahaan'];
+          $alumni[$a]['logomitra'] = $this->mitra_model->logo_mitra($value['mitra']);
+        }
+      }
       $alumni[$a]['foto'] = $this->foto_alumnus( $alumni[$a]['nimhs'] );
       $a++;
     }

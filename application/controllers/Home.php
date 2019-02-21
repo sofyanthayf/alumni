@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 		$this->load->model('alumni_model');
 		$this->load->model('loker_model');
 		$this->load->model('mitra_model');
+		$this->load->model('testimoni_model');
 	}
 
 	public function index()
