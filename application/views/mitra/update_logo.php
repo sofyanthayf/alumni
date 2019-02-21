@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-4 member">
         <div class="container text-center">
-          <img src="<?=$mitra['logo']?>" alt="" class="mitra-img">
+          <img src="<?=$mitra['logo']?>" alt="" class="mitra-img" style="margin-left:auto">
         </div>
       </div>
 

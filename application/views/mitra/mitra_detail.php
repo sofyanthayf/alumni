@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 about-img text-center">
-        <img src="<?=$mitra['logo']?>" alt="" class="mitra-img">
+        <img src="<?=$mitra['logo']?>" alt="" class="mitra-img" style="margin-left:auto">
       </div>
 
       <div class="col-lg-8 content">
@@ -48,7 +48,7 @@
                         <ul>
                           <?php foreach ($alumni as $key => $value): ?>
                             <li>&nbsp; &nbsp; &nbsp; &nbsp;
-                              <a href="/alumni/<?=$value['nimhs']?>"><?= $value['namamhs']?></a> 
+                              <a href="/alumni/<?=$value['nimhs']?>"><?= $value['namamhs']?></a>
                             </li>
                           <?php endforeach; ?>
                         </ul>

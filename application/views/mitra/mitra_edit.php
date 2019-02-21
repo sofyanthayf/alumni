@@ -11,7 +11,7 @@
             </a>
           </div>
         <?php else: ?>
-            <img src="<?=$mitra['logo']?>" alt="" class="mitra-img"><br>
+            <img src="<?=$mitra['logo']?>" alt="" class="mitra-img" style="margin-left:auto"><br>
             <a href="/mitra/updatelogo/<?=$mitra['id_mitra']?>">
               <button type="button" class="btn btn-light btn-block"name="udlogo">update logo</button>
             </a>

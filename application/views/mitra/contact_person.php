@@ -4,7 +4,7 @@
       <div class="col-lg-4 content">
 
         <div class="about-img text-center">
-          <img src="<?=$mitra['logo']?>" alt="" class="mitra-img">
+          <img src="<?=$mitra['logo']?>" alt="" class="mitra-img" style="margin-left:auto">
         </div>
         <br>
 
@@ -121,7 +121,6 @@
           </tr>
         </table>
 
-
         <?php if ( isset($cabang) ): ?>
 
           <h3>
@@ -143,7 +142,7 @@
             </tr>
             <tr>
               <td class="datafields" width="150px">Kota:</td>
-              <td><?=$cabang['kota_cabang']?></td>
+              <td><?=$cabang['kota']['nama_kabkota']?></td>
             </tr>
             <tr>
               <td class="datafields" width="150px">Kode Pos:</td>

@@ -65,7 +65,7 @@ class Mitra_model extends CI_Model {
     public function info_cabang($id_cabang)
     {
       $this->db->where('id_cabang', $id_cabang);
-      $query = $this->db->get('cabang_mitra');
+      $query = $this->db->get('mitra_cabang');
       return $query->row_array();
     }
 

@@ -13,6 +13,7 @@ class Mitra extends CI_Controller {
 		$this->load->model('mitra_model');
 		$this->load->model('alumni_model');
 		$this->load->model('testimoni_model');
+		$this->load->model('regional_model');
 	}
 
   // public function formPenilaianKinerja($nimhs)
@@ -232,7 +233,8 @@ class Mitra extends CI_Controller {
     $data['mitra'] = $this->mitra_model->info_mitra( $data['cp']['mitra'] );
 
     if( !empty($data['cp']['cabang_mitra']) ){
-      $data['cabang'] = $this->mitra_model->info_mitra( $data['cp']['cabang_mitra'] );
+      $data['cabang'] = $this->mitra_model->info_cabang( $data['cp']['cabang_mitra'] );
+      $data['cabang']['kota'] = $this->regional_model->kabkota($data['cabang']['kota_cabang']);
     }
 
     if( $data['cp']['id'] != $this->session->uid ){
