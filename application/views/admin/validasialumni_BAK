@@ -124,100 +124,92 @@
             <input type="hidden" id="validasi" name="validasi"
                    value="<?= count($prakira)==1 ? $prakira[0]['validasi'] : 0?>">
 
-
           <?php
-            if( !empty( $prakira ) ){
-          ?>
-
-            <?php if ( $prakira[0]['validasi'] == 8 ): ?>
-              <p class="text-primary">
-                Data alumni yang dimasukkan sudah memiliki akun user, hanya perlu menjalankan
-                mekanisme <strong>Lupa Password</strong> untuk mendapatkan password yang baru
-              </p>
-
-            <?php elseif( !empty($prakira) && $prakira[0]['validasi'] == 3): ?>
-              <p class="text-primary">
-                Email yang dimasukkan telah terdaftar/didaftarkan sebagai contact person perusahaan mitra
-                oleh rekan sejawatnya. Email sebagai alumni harus berbeda dengan email sebagai Contact
-                Person Perusahaan Mitra
-              </p>
-
-            <?php else: ?>
-
-              <h3><i class="ion-android-checkmark-circle"></i> Perkiraan data alumni yang cocok</h3>
-
-              <table class="table">
-                <?php foreach ($prakira as $key => $value): ?>
-                  <tr>
-                    <td><?=$value['nimhs']?></td>
-                    <td><?=$value['namamhs']?></td>
-                    <td>
-                      <?=!empty($value['tanggal_sk_yudisium'])?'Lulus: '.$value['tanggal_sk_yudisium']:''?>
-                    </td>
-                    <td>
-                      <?php
-                        if( $value['validasi'] == '8' ){
-                      ?>
-                        sudah terdaftar
-                      <?php
-                      } else {
-                      ?>
-                        <input type="radio" id="raccept" name="raccept" value="<?=$value['nimhs']?>" required> setujui
-                      <?php
-                      }
-                      ?>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-                <tr><td colspan="4"></td></tr>
-              </table>
-
-              <table class="table">
-                <?php
-                // if( !empty($prakira) && $prakira[0]['validasi'] != 8 ){
-                  foreach ($this->mylib->status_validasi as $key => $value):
-                    if( $key != 0 && ($key != 9 || !isset($prakira)) ){
-                      ?>
-                      <tr>
-                        <td>
-                          <input type="radio" id="raccept" name="raccept" value="<?=$key?>" required> <?=$value?>
-                        </td>
-                      </tr>
-                      <?php
-                    }
-                    ?>
-                  <?php endforeach;
-                  // }
-                  ?>
-                </table>
-
-            <?php endif; ?>
-
-          <?php
-            } else {
+          var_dump($prakira);
+            $kodeval = array(1,2,7);
+            // if (!empty($prakira) && in_array($prakira[0]['validasi'],$kodeval) ):
+            if (!empty($prakira) ):
               ?>
 
-              <p class="text-danger">
-                Data alumni yang dimasukkan belum ada pada database Alumni.<br>
-                Satus alumni dan kelulusan perlu diperiksa pada database <strong>SISKA</strong>
-                atau <strong>Forlap RistekDikti</strong>
-              </p>
+            <h3><i class="ion-android-checkmark-circle"></i> Perkiraan data alumni yang cocok</h3>
 
-          <?php
-            }
-          ?>
+            <table class="table">
+              <?php foreach ($prakira as $key => $value): ?>
+                <tr>
+                  <td><?=$value['nimhs']?></td>
+                  <td><?=$value['namamhs']?></td>
+                  <td>
+                    <?=!empty($value['tanggal_sk_yudisium'])?'Lulus: '.$value['tanggal_sk_yudisium']:''?>
+                  </td>
+                  <td>
+                    <?php
+                      if( $value['validasi'] == '8' ){
+                    ?>
+                      sudah terdaftar
+                    <?php
+                    } else {
+                    ?>
+                      <input type="radio" id="raccept" name="raccept" value="<?=$value['nimhs']?>" required> setujui
+                    <?php
+                    }
+                    ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+              <tr><td colspan="4"></td></tr>
+            </table>
 
-          <div class="text-right">
-            <button type="submit" class="btn-primary" id="btsubmit"> Selesai </button>
-          </div>
+          <?php elseif( !empty($prakira) && $prakira[0]['validasi'] == 3): ?>
+            <p class="text-primary">
+              Email yang dimasukkan telah terdaftar/didaftarkan sebagai contact person perusahaan mitra
+              oleh rekan sejawatnya. Email sebagai alumni harus berbeda dengan email sebagai Contact
+              Person Perusahaan Mitra
+            </p>
+
+          <?php elseif( !empty($prakira) && $prakira[0]['validasi'] == 8): ?>
+            <p class="text-primary">
+              Data alumni yang dimasukkan sudah memiliki akun user, hanya perlu menjalankan
+              mekanisme <strong>Lupa Password</strong> untuk mendapatkan password yang baru
+            </p>
+
+          <?php elseif( empty($prakira) ): ?>
+            <p class="text-danger">
+              Data alumni yang dimasukkan belum ada pada database Alumni.<br>
+              Satus alumni dan kelulusan perlu diperiksa pada database <strong>SISKA</strong>
+              atau <strong>Forlap RistekDikti</strong>
+            </p>
+          <?php endif; ?>
+          <br>
+
+          <table class="table">
+            <?php
+            if( !empty($prakira) && $prakira[0]['validasi'] != 8 ){
+              foreach ($this->mylib->status_validasi as $key => $value):
+                if( $key != 0 && ($key != 9 || !isset($prakira)) ){
+            ?>
+                  <tr>
+                    <td>
+                      <input type="radio" id="raccept" name="raccept" value="<?=$key?>" required> <?=$value?>
+                    </td>
+                  </tr>
+            <?php
+                }
+            ?>
+            <?php endforeach; }?>
+            <tr>
+              <td class="text-right">
+                <button type="submit" class="btn-primary" id="btsubmit"> Selesai </button>
+              </td>
+            </tr>
+          </table>
 
         </form>
+
+        </div>
 
         <?php
           }
         ?>
-
-      </div>
 
     </div>
 
