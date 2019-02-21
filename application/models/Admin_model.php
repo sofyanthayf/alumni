@@ -63,7 +63,22 @@ class Admin_model extends CI_Model {
 
   }
 
-
+  public function aktivitasAlumniByVisit()
+  {
+    $sql = "SELECT
+              YEAR(a.tanggal_sk_yudisium) thn_lulus,
+              COUNT(a.nimhs) jml_lulusan,
+              AVG(u.visits) avg_visit
+            FROM `users` u
+            LEFT JOIN alumni a USING(email)
+            WHERE visits > '0'
+              AND u.status = '0'
+              AND a.tanggal_sk_yudisium IS NOT NULL
+            GROUP BY YEAR(a.tanggal_sk_yudisium)
+            ORDER BY jml_lulusan DESC";
+            
+     return $this->db->query($sql)->result_array();
+  }
 
 
 }
