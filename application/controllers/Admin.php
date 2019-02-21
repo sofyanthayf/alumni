@@ -21,6 +21,8 @@ class Admin extends CI_Controller {
   {
     $data['visit'] = $this->admin_model->aktivitasAlumniByVisit();
     $data['validasiwaitinglist'] = $this->admin_model->validasiWaitingList();
+    $data['requestValidasi'] = $this->admin_model->requestValidasiTotal();
+    $data['requestValid'] = $this->admin_model->requestValidasiValid();
     $this->load->template('admin/home', $data);
   }
 

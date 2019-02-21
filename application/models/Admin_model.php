@@ -76,10 +76,38 @@ class Admin_model extends CI_Model {
               AND a.tanggal_sk_yudisium IS NOT NULL
             GROUP BY YEAR(a.tanggal_sk_yudisium)
             ORDER BY jml_lulusan DESC";
-            
+
      return $this->db->query($sql)->result_array();
   }
 
+  public function requestValidasiValid()
+  {
+    $sql = "SELECT
+              YEAR(a.tanggal_sk_yudisium) thn_lulus,
+              COUNT(a.nimhs) jml_lulusan,
+              SUM(IF(u.validasi=9,1,0)) accepted,
+              SUM(IF(u.validasi=8,1,0)) registered
+            FROM `validasi_alumni` u
+            LEFT JOIN alumni a USING(email)
+            WHERE YEAR(a.tanggal_sk_yudisium) IS NOT NULL
+            GROUP BY YEAR(a.tanggal_sk_yudisium)
+            ORDER BY jml_lulusan DESC";
+
+     return $this->db->query($sql)->result_array();
+  }
+
+  public function requestValidasiTotal()
+  {
+    $sql = "SELECT
+              COUNT(*) jml_request,
+              SUM(IF(u.validasi=9,1,0)) accepted,
+              SUM(IF(u.validasi=8,1,0)) registered,
+              SUM(IF(u.validasi<8 AND u.validasi>1,1,0)) rejected,
+              SUM(IF(u.validasi=1,1,0)) unident
+            FROM `validasi_alumni` u";
+
+     return $this->db->query($sql)->result_array();
+  }
 
 }
 
