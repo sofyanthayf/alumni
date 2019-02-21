@@ -19,10 +19,9 @@ class Admin extends CI_Controller {
 
   public function index()
   {
+    $data['home'] = true;
     $data['visit'] = $this->admin_model->aktivitasAlumniByVisit();
     $data['validasiwaitinglist'] = $this->admin_model->validasiWaitingList();
-    $data['requestValidasi'] = $this->admin_model->requestValidasiTotal();
-    $data['requestValid'] = $this->admin_model->requestValidasiValid();
     $this->load->template('admin/home', $data);
   }
 
@@ -32,7 +31,9 @@ class Admin extends CI_Controller {
 
     if($requestid == ''){
       $data['waitinglist'] = $this->admin_model->validasiWaitingList();
-    } else {
+      $data['requestValidasi'] = $this->admin_model->requestValidasiTotal();
+      $data['requestValid'] = $this->admin_model->requestValidasiValid();
+      } else {
       $data['requestid'] = $requestid;
       $data['request'] = $this->admin_model->validasiRequest($requestid);
       $data['prakira'] = $this->admin_model->prakiraAlumni( $data['request'] );
