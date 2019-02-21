@@ -91,7 +91,7 @@
 
             <?php if (!empty($request['tahun_wisuda'])): ?>
               <tr>
-                <td class="datafields">Tahun Masuk:</td>
+                <td class="datafields">Tahun Lulus:</td>
                 <td><?=$request['tahun_wisuda']?></td>
               </tr>
             <?php endif; ?>
@@ -125,8 +125,11 @@
                    value="<?= count($prakira)==1 ? $prakira[0]['validasi'] : 0?>">
 
           <?php
+          // var_dump($prakira);
             $kodeval = array(1,2,7);
-            if (!empty($prakira) && in_array($prakira[0]['validasi'],$kodeval) ): ?>
+            // if (!empty($prakira) && in_array($prakira[0]['validasi'],$kodeval) ):
+            if (!empty($prakira) ):
+              ?>
 
             <h3><i class="ion-android-checkmark-circle"></i> Perkiraan data alumni yang cocok</h3>
 
@@ -169,7 +172,7 @@
               mekanisme <strong>Lupa Password</strong> untuk mendapatkan password yang baru
             </p>
 
-          <?php else: ?>
+          <?php elseif( empty($prakira) ): ?>
             <p class="text-danger">
               Data alumni yang dimasukkan belum ada pada database Alumni.<br>
               Satus alumni dan kelulusan perlu diperiksa pada database <strong>SISKA</strong>
