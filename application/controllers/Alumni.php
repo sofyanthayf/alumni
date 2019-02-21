@@ -230,6 +230,7 @@ class Alumni extends CI_Controller {
                       'kodepos' => $this->input->post('kodepos'),
                       'telepon' => $this->input->post('notelp'),
                       'telepon2' => $this->input->post('notelp2'),
+                      'website' => $this->input->post('urlwebsite'),
                       'facebook' => $this->input->post('urlfacebook'),
                       'linkedin' => $this->input->post('urllinkedin'),
                       'scholar' => $this->input->post('urlscholar'),

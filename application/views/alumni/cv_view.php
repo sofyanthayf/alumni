@@ -4,6 +4,7 @@
       <div class="col-lg-4 member">
         <div class="container text-center">
           <img src="<?=$alumnus['foto']?>" alt="" style="max-width:250px;">
+          <img src="" alt="" id="mitralogo" class="mitra-img" style="margin-left:auto">
 
         <?php
           if( !empty( $this->session->uid ) && $this->session->uid == $alumnus['nimhs'] ){
@@ -283,16 +284,26 @@
         </table>
       </form>
 
+<script type="text/javascript">
+  var logo;
+</script>
 
         <h3>
           <i class="ion-android-checkmark-circle"></i> Riwayat Pekerjaan:
         </h3>
         <table class="table">
+          
           <?php foreach ($alumnus['pekerjaan'] as $key => $value): ?>
             <tr>
               <td width='180px'>
                 <?=date("Y", strtotime($value['tanggal_awal'])) ." - ".
                    (empty($value['tanggal_akhir'])?'sekarang':date("Y", strtotime($value['tanggal_akhir']))) ?>
+
+                <?php if (empty($value['tanggal_akhir'])): ?>
+                  <script type="text/javascript">
+                    logo = '<?=$this->mitra_model->logo_mitra($value['mitra']) ?>';
+                  </script>
+                <?php endif; ?>
               </td>
               <td>
                 <?php
@@ -569,6 +580,10 @@
 </section><!-- #about -->
 
 <script type="text/javascript">
+
+$(function(){
+  $("#mitralogo").attr("src",logo);
+});
 
 $("#clickedit").click(function(){
   enableEdit();
