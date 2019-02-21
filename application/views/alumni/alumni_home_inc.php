@@ -36,7 +36,7 @@
           <div class="pic" style="position:relative;">
             <?php if (!empty($key['mitra'])): ?>
               <span class="mitra-badge">
-                <a href="/mitra/<?=$key['mitra']?>" title="<?$key['namamitra']?>">
+                <a href="/mitra/<?=$key['mitra']?>" title="<?=$key['namamitra']?>">
                   <img src="<?=$key['logomitra']?>">
                 </a>
               </span>
