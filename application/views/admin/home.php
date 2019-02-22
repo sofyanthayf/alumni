@@ -48,6 +48,11 @@
 
   $(function(){
     $("#totalvisit").html( totalvisit );
+
+    setTimeout(function() {
+        location.reload();
+      }, 60000);
+
   });
 
 </script>
