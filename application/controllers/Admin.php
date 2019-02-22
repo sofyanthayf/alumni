@@ -90,7 +90,10 @@ class Admin extends CI_Controller {
     redirect('/admin/validasialumni');
   }
 
-
+  public function aktivitas_user()
+  {
+    $this->load->template('admin/aktivitasuser');
+  }
 
 
 }

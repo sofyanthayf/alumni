@@ -30,9 +30,11 @@
   <link href="/assets/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="/assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="/assets/css/bootstrap-datepicker.css" rel="stylesheet">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="/assets/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
+  <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" >
   <!-- Main Stylesheet File -->
   <link href="/assets/css/style.css" rel="stylesheet">
+
 
   <!-- =======================================================
     Theme Name: Reveal
@@ -40,9 +42,13 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-  <script src="/assets/lib/jquery/jquery.min.js"></script>
+  <!-- <script src="/assets/lib/jquery/jquery.min.js"></script> -->
+  <!-- <script src="/assets/lib/jquery/jquery-migrate.min.js"></script> -->
+
+  <script src="/assets/js/jquery-3.3.1.min.js"></script>
   <script src="/assets/lib/jquery/jquery-migrate.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/assets/js/jquery.dataTables.js" type="text/javascript" charset="utf8"></script>
 </head>
 
 <body id="body">

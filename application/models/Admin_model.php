@@ -108,6 +108,22 @@ class Admin_model extends CI_Model {
      return $this->db->query($sql)->result_array();
   }
 
+  public function aktivitasUser($stat)
+  {
+    $this->db->select('us.email, us.email, us.last_login, us.visits');
+    $this->db->from('users us');
+    if( $stat == 0 ){
+      $this->db->select('al.namamhs nama, al.nimhs id');
+      $this->db->join('alumni al', 'email', 'LEFT');
+    } else {
+      $this->db->select('cp.id id, cp.nama');
+      $this->db->join('contact_person cp', 'email', 'LEFT');
+    }
+    $this->db->where('us.status', $stat);
+    $this->db->where('us.visits >', '0');
+    return $this->db->get()->result_array();
+  }
+
 }
 
 ?>
