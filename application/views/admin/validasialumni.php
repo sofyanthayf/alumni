@@ -5,7 +5,7 @@
         <img src="/assets/img/mitra/1549001943.jpg" alt="" class="mitra-img">
 
         <?php $this->load->view('/admin/nav'); ?>
-        
+
       </div>
 
         <?php
@@ -227,25 +227,6 @@
                 <tr><td colspan="4"></td></tr>
               </table>
 
-              <table class="table">
-                <?php
-                // if( !empty($prakira) && $prakira[0]['validasi'] != 8 ){
-                  foreach ($this->mylib->status_validasi as $key => $value):
-                    if( $key != 0 && ($key != 9 || !isset($prakira)) ){
-                      ?>
-                      <tr>
-                        <td>
-                          <input type="radio" id="raccept" name="raccept" value="<?=$key?>" required> <?=$value?>
-                        </td>
-                      </tr>
-                      <?php
-                    }
-                    ?>
-                  <?php endforeach;
-                  // }
-                  ?>
-                </table>
-
             <?php endif; ?>
 
           <?php
@@ -261,6 +242,25 @@
           <?php
             }
           ?>
+          
+          <table class="table">
+            <?php
+            // if( !empty($prakira) && $prakira[0]['validasi'] != 8 ){
+              foreach ($this->mylib->status_validasi as $key => $value):
+                if( $key != 0 && ($key != 9 || !isset($prakira)) ){
+                  ?>
+                  <tr>
+                    <td>
+                      <input type="radio" id="raccept" name="raccept" value="<?=$key?>" required> <?=$value?>
+                    </td>
+                  </tr>
+                  <?php
+                }
+                ?>
+              <?php endforeach;
+              // }
+              ?>
+            </table>
 
           <div class="text-right">
             <button type="submit" class="btn-primary" id="btsubmit"> Selesai </button>

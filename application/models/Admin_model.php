@@ -38,7 +38,8 @@ class Admin_model extends CI_Model {
         $where .= "OR nimhs='".$data['nimhs']."' ";
       };
 
-      $nama = explode(" ", $data['nama_lengkap']);
+      $nama = str_replace( ".", " ", $data['nama_lengkap'] );
+      $nama = explode(" ", $nama );
       $n = 1;
       foreach ($nama as $value) {
         if( strlen($value) >= 3 ) {
