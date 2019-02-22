@@ -145,10 +145,20 @@ class Mitra extends CI_Controller {
     $data = $this->input->post();
     $data['request_id'] = date('U');
     $data['request_cp'] = $this->session->uid;
-    var_dump( $data );
+    // var_dump( $data );
 
     $insert = $this->mitra_model->prosesInsert('mitra_update', $data );
     redirect('/contactperson' );
+  }
+
+  public function update_mitra()
+  {
+    $data = $this->input->post();
+    $where = array('id_mitra'=> $data['id_mitra']);
+    // var_dump( $data );
+
+    $update = $this->mitra_model->prosesUpdate('mitra', $data, $where );
+    redirect('/mitra/'.$data['id_mitra'] );
   }
 
   public function update_logo( $id_mitra )

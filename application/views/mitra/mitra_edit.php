@@ -7,7 +7,7 @@
         <?php if (empty($mitra['logo'])): ?>
           <div id="logoblank">
             <a href="/mitra/updatelogo/<?=$mitra['id_mitra']?>" title="upload file logo perusahaan">
-              <img src="/assets/img/mitra/blank.png" class="mitra-img">
+              <img src="/assets/img/mitra/blank.png" class="mitra-img" style="margin-left:auto">
             </a>
           </div>
         <?php else: ?>
@@ -23,7 +23,7 @@
 
       <div class="col-lg-8 content">
         <h2><?=$mitra['nama_perusahaan']?></h2>
-        <form class="form" action="/mitra/simpanupdate" method="post">
+        <form class="form" action="<?=$this->session->who=='ad'?'/mitra/update':'/mitra/simpanupdate'?>" method="post">
           <input type="hidden" name="id_mitra" value="<?=$mitra['id_mitra']?>">
         <h3>
           <i class="ion-android-checkmark-circle"></i> Updata Data Perusahaan
@@ -134,9 +134,9 @@
                 setelah direview dan divalidasi oleh administrator
               </p>
               <div class="text-right">
-                <input type="submit" class="btn btn-primary" value=" Simpan Usulan Penyesuaian ">
+                <input type="submit" class="btn btn-primary" value=" <?=$this->session->who=='ad'?'Update':'Simpan Usulan Update'?> ">
                 &nbsp;
-                <a href="/contactperson">
+                <a href="<?=$this->session->who=='ad'?'/mitra/'.$mitra['id_mitra']:'/contactperson'?>">
                   <button type="button" class="btn btn-danger" name="btcancel"> Batal </button>
                 </a>
               </div>

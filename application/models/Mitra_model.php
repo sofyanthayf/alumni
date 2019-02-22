@@ -114,7 +114,7 @@ class Mitra_model extends CI_Model {
       return $insert;
     }
 
-    function prosesUpdate( $table_name, $data, $where) {
+    public function prosesUpdate( $table_name, $data, $where) {
       $this->db->where( $where );
       $update = $this->db->update($table_name,$data);
       return $update;

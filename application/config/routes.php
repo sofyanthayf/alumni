@@ -57,7 +57,8 @@ $route['alumni/(:any)'] = 'alumni/detailalumni/$1';
 $route['alumni/(:any)/(:any)'] = 'alumni/detailalumni/$1/$2';   // $2 = 'pdf'
 
 $route['mitra/usulanedit/(:any)'] = 'mitra/edit_mitra/$1';
-$route['mitra/simpanupdate'] = 'mitra/simpanupdate_mitra';
+$route['mitra/simpanupdate'] = 'mitra/simpanupdate_mitra';    // revisi by cp masuk usulan
+$route['mitra/update'] = 'mitra/update_mitra';                // revisi by admin langsung simpan
 $route['mitra/usulaneditcabang/(:any)'] = 'mitra/edit_cabang/$1';
 $route['mitra/simpanupdatecabang'] = 'mitra/simpanupdate_cabang';
 $route['mitra/updatelogo/(:any)'] = 'mitra/update_logo/$1';
