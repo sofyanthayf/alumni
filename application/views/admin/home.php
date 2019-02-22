@@ -11,7 +11,11 @@
       <div class="col-lg-6 content">
         <h2>Aktivitas Alumni</h2>
 
-        <h3><i class="ion-android-checkmark-circle"></i> Kunjungan Alumni <span id="totalvisit"></span> </h3>
+        <h3>
+          <i class="ion-android-checkmark-circle"></i>
+          Kunjungan Alumni &nbsp; <span id="totalvisit" class="badge badge-primary"></span>
+        </h3>
+
         <table class="table">
           <thead>
             <th>Lulusan</th>
@@ -43,7 +47,7 @@
   var totalvisit = <?=$total?>;
 
   $(function(){
-    $("#totalvisit").html('('+totalvisit+')');
+    $("#totalvisit").html( totalvisit );
   });
-  
+
 </script>
