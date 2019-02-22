@@ -67,7 +67,7 @@ class Admin_model extends CI_Model {
   public function aktivitasAlumniByVisit()
   {
     $sql = "SELECT
-              YEAR(a.tanggal_sk_yudisium) thn_lulus,
+              ANY_VALUE(IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data')) thn_lulus,
               COUNT(a.nimhs) jml_lulusan,
               AVG(u.visits) avg_visit
             FROM `users` u
@@ -75,7 +75,7 @@ class Admin_model extends CI_Model {
             WHERE visits > '0'
               AND u.status = '0'
             GROUP BY YEAR(a.tanggal_sk_yudisium)
-            ORDER BY jml_lulusan DESC";
+            ORDER BY thn_lulus DESC";
 
      return $this->db->query($sql)->result_array();
   }
@@ -83,14 +83,14 @@ class Admin_model extends CI_Model {
   public function requestValidasiValid()
   {
     $sql = "SELECT
-              YEAR(a.tanggal_sk_yudisium) thn_lulus,
+              ANY_VALUE(IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data')) thn_lulus,
               COUNT(a.nimhs) jml_lulusan,
               SUM(IF(u.validasi=9,1,0)) accepted,
               SUM(IF(u.validasi=8,1,0)) registered
             FROM `validasi_alumni` u
             LEFT JOIN alumni a USING(email)
             GROUP BY YEAR(a.tanggal_sk_yudisium)
-            ORDER BY jml_lulusan DESC";
+            ORDER BY thn_lulus DESC";
 
      return $this->db->query($sql)->result_array();
   }
