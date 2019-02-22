@@ -39,7 +39,6 @@ $(function(){
 });
 
 $("input[name='userstat']").change(function(){
-  alert($("input[name='userstat']:checked").val());
   refreshTable( $("input[name='userstat']:checked").val() );
 })
 
