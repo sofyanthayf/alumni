@@ -74,7 +74,6 @@ class Admin_model extends CI_Model {
             LEFT JOIN alumni a USING(email)
             WHERE visits > '0'
               AND u.status = '0'
-              AND a.tanggal_sk_yudisium IS NOT NULL
             GROUP BY YEAR(a.tanggal_sk_yudisium)
             ORDER BY jml_lulusan DESC";
 
@@ -90,7 +89,6 @@ class Admin_model extends CI_Model {
               SUM(IF(u.validasi=8,1,0)) registered
             FROM `validasi_alumni` u
             LEFT JOIN alumni a USING(email)
-            WHERE YEAR(a.tanggal_sk_yudisium) IS NOT NULL
             GROUP BY YEAR(a.tanggal_sk_yudisium)
             ORDER BY jml_lulusan DESC";
 
