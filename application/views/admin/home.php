@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 text-center">
-        <img src="/assets/img/mitra/1549001943.jpg" alt="" class="mitra-img">
+        <img src="/assets/img/mitra/1549001943.gif" alt="" class="mitra-img">
 
         <?php $this->load->view('/admin/nav'); ?>
       </div>
