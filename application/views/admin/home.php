@@ -11,7 +11,7 @@
       <div class="col-lg-6 content">
         <h2>Aktivitas Alumni</h2>
 
-        <h3><i class="ion-android-checkmark-circle"></i> Kunjungan Alumni</h3>
+        <h3><i class="ion-android-checkmark-circle"></i> Kunjungan Alumni <span id="totalvisit"></span> </h3>
         <table class="table">
           <thead>
             <th>Lulusan</th>
@@ -19,13 +19,17 @@
             <th>Rata-rata Visit</th>
           </thead>
           <tbody>
-            <?php foreach ($visit as $key => $value): ?>
+            <?php
+              $total = 0;
+              foreach ($visit as $key => $value): ?>
               <tr>
                 <td><?=$value['thn_lulus']?></td>
                 <td><?=$value['jml_lulusan']?></td>
                 <td><?=round($value['avg_visit'],1)?></td>
               </tr>
-            <?php endforeach; ?>
+            <?php
+              $total += $value['jml_lulusan'];
+              endforeach; ?>
           </tbody>
         </table>
 
@@ -34,3 +38,12 @@
 
   </div>
 </section>
+
+<script type="text/javascript">
+  var totalvisit = <?=$total?>;
+
+  $(function(){
+    $("#totalvisit").html('('+totalvisit+')');
+  });
+  
+</script>
