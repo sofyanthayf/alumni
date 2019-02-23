@@ -54,6 +54,7 @@ function refreshTable( stat = 0 ){
                 {data: 'last_login'},
                 {data: 'visits', "className": "dt-center"},
               ],
+    order: [[3, 'desc']],
     destroy: true
   });
 }
