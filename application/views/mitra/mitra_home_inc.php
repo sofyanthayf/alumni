@@ -28,11 +28,13 @@
       // }
 
       foreach ($daftarmitra as $mitra) {
+        if( !empty($mitra['logo']) ){
     ?>
       <a href="/mitra/<?=$mitra['mitra']?>" title="<?=$mitra['nama_perusahaan']?>">
         <img src="<?=$mitra['logo']?>" alt="<?=$mitra['nama_perusahaan']?>" class="mitra-img">
       </a>
     <?php
+        }
       }
     ?>
     </div>
