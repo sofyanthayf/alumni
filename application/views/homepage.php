@@ -38,8 +38,8 @@
           <div class="col-lg-6 content">
             <h2>Selamat Datang di Layanan Alumni STMIK KHARISMA Makassar</h2>
             <h3>
-              Menjembatani komunikasi antara <strong>Alumni</strong>, <strong>Almamater</strong>,
-              dan Perusahaan Mitra selaku <strong>Stakeholder</strong>, tiga unsur yang harus selalu
+              Menjembatani komunikasi antara <strong><i>Alumni</i></strong>, <strong><i>Almamater</i></strong>,
+              dan Perusahaan Mitra selaku <strong><i>Stakeholder</i></strong>, tiga unsur yang harus selalu
               bersinergi guna perbaikan dan peningkatan kualitas lulusan STMIK KHARISMA dan Pendidikan
               Tinggi Indonesia pada umumnya.
             </h3>

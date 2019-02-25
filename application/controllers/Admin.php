@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
     parent::__construct();
     $this->load->model('admin_model');
     $this->load->model('alumni_model');
+    $this->load->model('mitra_model');
 
     $this->session->admin = true;
 
@@ -95,6 +96,11 @@ class Admin extends CI_Controller {
     $this->load->template('admin/aktivitasuser');
   }
 
+  public function daftar_mitra()
+  {
+    $data['mitra'] = $this->mitra_model->daftar_mitra();
+    $this->load->template('admin/daftarmitra', $data);
+  }
 
 }
 

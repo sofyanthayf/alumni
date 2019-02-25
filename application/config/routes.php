@@ -96,6 +96,7 @@ $route['admin/validasialumni'] = 'admin/validasi_alumni';
 $route['admin/validasialumni/(:any)'] = 'admin/validasi_alumni/$1';
 $route['admin/submitvalidasi'] = 'admin/submit_validasi';
 $route['admin/aktivitasuser'] = 'admin/aktivitas_user';
+$route['admin/mitra'] = 'admin/daftar_mitra';
 
 
 

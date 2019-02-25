@@ -42,6 +42,10 @@ $("input[name='userstat']").change(function(){
   refreshTable( $("input[name='userstat']:checked").val() );
 })
 
+$("#useractivity tbody").on('click', 'tr', function () {
+    alert("CLICK");
+});
+
 function refreshTable( stat = 0 ){
   $("#useractivity").DataTable({
     ajax: { url  : "/api_admin/useractivity/stat/" + stat,

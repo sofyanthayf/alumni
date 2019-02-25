@@ -17,6 +17,10 @@
     <img src="/assets/img/mhs16.png"> Aktivitas User
   </a>
 
+  <a class="btn btn-light btn-block" href="/admin/mitra" title="Lihat Aktivitas User" style="margin:15px;">
+    <img src="/assets/img/web16.png"> Perusahaan Mitra
+  </a>
+
   <br>
   <a class="btn btn-light btn-block" href="/gantipassword" title="Ganti Password" style="margin:15px;">
     <img src="/assets/img/key16.png"> Ganti Password

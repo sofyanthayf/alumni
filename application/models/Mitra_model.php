@@ -79,18 +79,20 @@ class Mitra_model extends CI_Model {
     public function daftar_mitra()
     {
       $this->db->distinct();    // agar tak berulang
-      $this->db->select('mitra, nama_perusahaan');
+      $this->db->select('mitra, nama_perusahaan, brand, statusbh, website');
       $this->db->join('mitra', 'mitra_alumni.mitra = mitra.id_mitra');  // join untuk dapatkan nama perusahaan
       $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
+      $this->db->order_by('nama_perusahaan');
       $query = $this->db->get('mitra_alumni');
 
       // added and modified by Sofyan Thayf
       $mitra = $query->result_array();
 
-      // menambahkan file logo ke dalam daftar mitra
+      // menambahkan file logo dan jumlah alumni ke dalam daftar mitra
       $m = 0;
       foreach ($mitra as $key => $value) {
         $mitra[$m]['logo'] = $this->logo_mitra( $value['mitra'] ) ;
+        $mitra[$m]['jml_alumni'] = $this->total_alumnimitra( $value['mitra'] ) ;
         $m++;
       }
       return $mitra;
