@@ -681,14 +681,20 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-color: #3498DB;
 }
 
-.mitra-img {
+.mitra-img-container {
+  position: relative;
   max-width: 200px;
   max-height: 100px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   vertical-align: middle;
-  padding: 5px;
+  padding: 10px;
+}
+
+.mitra-img {
+  max-width: 100%;
+  max-height: 80px;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
 }
 
 .mitra-badge {
