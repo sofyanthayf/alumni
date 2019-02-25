@@ -74,10 +74,12 @@
           <tr><td>Fadjri Aladin</td></tr>
           <tr><td>Faisal T. Supu</td></tr>
           <tr><td>Hamdan Arfandy</td></tr>
+          <tr><td>Hendra Surasa</td></tr>
           <tr><td>Izmy Alwiyah Musdar</td></tr>
           <tr><td>Junaedy</td></tr>
           <tr><td>Marlina</td></tr>
           <tr><td>Muhammad Asnur</td></tr>
+          <tr><td>Renny</td></tr>
           <tr><td>Sri Mulyani</td></tr>
           <tr><td>Sukmawati</td></tr>
           <tr><td>Viena Vanesha Ananda</td></tr>
