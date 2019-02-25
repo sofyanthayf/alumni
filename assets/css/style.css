@@ -16,14 +16,23 @@ body {
 }
 
 a {
-  color: #3498DB;
+  /* color: #3498DB; */
+  color: #9B057B;
   transition: 0.5s;
 }
 
-a:hover,
 a:active,
+a:visited,
 a:focus {
-  color: #51d8af;
+  /* color: #51d8af; */
+  color: #9B057B;
+  outline: none;
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: #51d8af; */
+  color: #F00;
   outline: none;
   text-decoration: none;
 }
