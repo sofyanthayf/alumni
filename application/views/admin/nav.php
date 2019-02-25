@@ -21,6 +21,14 @@
     <img src="/assets/img/web16.png"> Perusahaan Mitra
   </a>
 
+  <a class="btn btn-light btn-block" href="#" title="Lihat Aktivitas User" style="margin:15px;">
+    <img src="/assets/img/email16.png"> Notifikasi Alumni
+  </a>
+
+  <a class="btn btn-light btn-block" href="#" title="Lihat Aktivitas User" style="margin:15px;">
+    <img src="/assets/img/notes16.png"> Posting Lowongan Kerja
+  </a>
+
   <br>
   <a class="btn btn-light btn-block" href="/gantipassword" title="Ganti Password" style="margin:15px;">
     <img src="/assets/img/key16.png"> Ganti Password

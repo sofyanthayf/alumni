@@ -82,7 +82,7 @@ class Mitra_model extends CI_Model {
       $this->db->select('mitra, nama_perusahaan, brand, statusbh, website');
       $this->db->join('mitra', 'mitra_alumni.mitra = mitra.id_mitra');  // join untuk dapatkan nama perusahaan
       $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
-      $this->db->order_by('nama_perusahaan');
+      $this->db->order_by('brand');
       $query = $this->db->get('mitra_alumni');
 
       // added and modified by Sofyan Thayf
