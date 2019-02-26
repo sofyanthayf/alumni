@@ -694,6 +694,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: relative;
   max-width: 200px;
   max-height: 100px;
+  display: block;
   vertical-align: middle;
   text-align: center;
   padding: 10px;
@@ -704,7 +705,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   max-height: 80px;
   margin-left:auto;
   margin-right:auto;
-  display:block;
+  vertical-align: middle;
 }
 
 .mitra-badge {
