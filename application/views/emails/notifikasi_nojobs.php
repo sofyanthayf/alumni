@@ -27,7 +27,7 @@
     <li>Masa tunggu alumni terhitung sejak menyelesaikan kuliah</li>
     <li>Kesesuaian bidang kerja alumni</li>
     <li>Pengembangan diri alumni melalui pendidikan dan sertifikasi</li>
-    <li>Penghargaan atas alumni di lihat dari rentang penghasilan </li>
+    <li>Penghargaan atas alumni dilihat dari rentang penghasilan </li>
     <li>Kinerja alumni berdasarkan penilaian pemberi kerja dan rekan kerja</li>
   </ol>
 </p>

@@ -122,10 +122,10 @@ class Admin extends CI_Controller {
 
     // kirim email
     $contact['nama'] = $alumnus['namamhs'];
-    
+
     $maildata['to'] = $alumnus['email'];
     $maildata['subject'] = "Data Pekerjaan Alumni Penting bagi STMIK KHARISMA";
-    $maildata['message'] = $this->load->view('emails/nojobs_notif', $contact, true);;
+    $maildata['message'] = $this->load->view('emails/notifikasi_nojobs', $contact, true);;
 
     $sent = $this->mylib->sendEmail( $maildata );
 
