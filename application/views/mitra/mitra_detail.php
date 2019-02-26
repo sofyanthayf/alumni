@@ -31,7 +31,7 @@
           </li>
           <li>
             <i class="ion-android-checkmark-circle"></i>
-            Website: <a href="http://<?=$mitra['website']?>" target="_blank">http://<?=$mitra['website']?></a>
+            Website: <a href="<?=$mitra['website']?>" target="_blank"><?=$mitra['website']?></a>
           </li>
 
 

@@ -49,6 +49,11 @@ class Mitra_model extends CI_Model {
       // logo
       $mitra['logo'] = $this->logo_mitra( $id_mitra ) ;
 
+      // koreksi website
+      if( strpos( $mitra['website'], 'http' ) === false ){
+        $mitra['website'] = 'http://'.$mitra['website'];
+      }
+
       // total alumni
       $mitra['total_alumni'] = $this->total_alumnimitra( $id_mitra ) ;
 
@@ -93,6 +98,11 @@ class Mitra_model extends CI_Model {
       foreach ($mitra as $key => $value) {
         $mitra[$m]['logo'] = $this->logo_mitra( $value['mitra'] ) ;
         $mitra[$m]['jml_alumni'] = $this->total_alumnimitra( $value['mitra'] ) ;
+
+        // koreksi website
+        if( strpos( $mitra[$m]['website'], 'http' ) === false ){
+          $mitra[$m]['website'] = 'http://'.$mitra[$m]['website'];
+        }
         $m++;
       }
       return $mitra;
