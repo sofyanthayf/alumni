@@ -21,7 +21,7 @@
     <img src="/assets/img/web16.png"> Perusahaan Mitra
   </a>
 
-  <a class="btn btn-light btn-block" href="#" title="Lihat Aktivitas User" style="margin:15px;">
+  <a class="btn btn-light btn-block" href="/admin/notifikasialumni" title="Lihat Aktivitas User" style="margin:15px;">
     <img src="/assets/img/email16.png"> Notifikasi Alumni
   </a>
 

@@ -102,6 +102,37 @@ class Admin extends CI_Controller {
     $this->load->template('admin/daftarmitra', $data);
   }
 
+  public function notifikasi_alumni($value='')
+  {
+    $data['list_nojobs'] = $this->admin_model->listNoJobs();
+    $data['maillist'] = $this->admin_model->listEmailNotif(1);
+    // $data['list_noRefs'] = $this->admin_model->listNoRefs();
+    $this->load->template('admin/notifikasialumni', $data);
+  }
+
+  public function send_notifikasi($id, $tipe)
+  {
+    $alumnus = $this->alumni_model->alumnus( $id );
+    $dnotif = array(
+                  'id' => date('U'),
+                  'email' => $alumnus['email'],
+                  'tipe_notif' => $tipe
+                );
+    $insert = $this->alumni_model->prosesInsert('notifikasi_alumni',$dnotif);
+
+    // kirim email
+    $contact['nama'] = $alumnus['namamhs'];
+    
+    $maildata['to'] = $alumnus['email'];
+    $maildata['subject'] = "Data Pekerjaan Alumni Penting bagi STMIK KHARISMA";
+    $maildata['message'] = $this->load->view('emails/nojobs_notif', $contact, true);;
+
+    $sent = $this->mylib->sendEmail( $maildata );
+
+    // redirect
+    redirect('/admin/notifikasialumni');
+  }
+
 }
 
 ?>

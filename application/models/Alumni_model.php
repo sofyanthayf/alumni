@@ -7,6 +7,7 @@ class Alumni_model extends CI_Model {
   public function __construct() {
       parent::__construct();
       $this->load->model('regional_model');
+      $this->load->model('testimoni_model');
   }
 
   public function getDataSertifikat($nimhs){

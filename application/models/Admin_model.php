@@ -124,6 +124,50 @@ class Admin_model extends CI_Model {
     return $this->db->get()->result_array();
   }
 
+  public function listNoJobs()
+  {
+    $amail = $this->listEmailNotif(1);
+    $this->db->select('al.namamhs, al.nimhs, al.email');
+    $this->db->select('us.visits, us.last_login, mi.mitra');
+    $this->db->from('alumni al');
+    $this->db->join('users us', 'email', 'LEFT');
+    $this->db->join('mitra_alumni mi', 'nimhs', 'LEFT');
+    $this->db->where('us.visits >', '0', false);
+    $this->db->where('mi.mitra IS NULL', null, false);
+
+    if( !empty($amail) ) $this->db->where_not_in('al.email', $amail);
+
+    $this->db->order_by('us.last_login', 'ASC');
+
+    return $this->db->get()->result_array();
+  }
+
+  public function listNoRefs()
+  {
+    $amail = $this->listEmailNotif(2);
+    $this->db->select('al.namamhs, al.nimhs, al.email');
+    $this->db->from('alumni al');
+
+    if( !empty($amail) ) $this->db->where_not_in('al.email', $amail);
+    
+    $this->db->order_by('us.last_login', 'ASC');
+
+    return $this->db->get()->result_array();
+  }
+
+  public function listEmailNotif($tipe)
+  {
+    $this->db->select('email');
+    $this->db->where('tipe_notif', $tipe);
+    $this->db->where('DATE(tanggal_notif) > DATE_SUB(CURDATE(), INTERVAL 7 DAY)', null,  false);
+    $query = $this->db->get('notifikasi_alumni');
+    $amail = array_map (function($value){
+                        return $value['email'];
+                      } , $query->result_array());
+    return $amail;
+  }
+
+
 }
 
 ?>
