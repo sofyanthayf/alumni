@@ -31,7 +31,8 @@
                 <td><?=$value['visits']?></td>
                 <td><?=$value['last_login']?></td>
                 <td>
-                  <a href="/admin/sendnotif/<?=$value['nimhs']?>/1">
+                  <a href="/admin/sendnotif/<?=$value['nimhs']?>/1"
+                     title="kirim email notifikasi">
                     <img src="/assets/img/email16.png">
                   </a>
                 </td>
@@ -65,7 +66,8 @@
                 <td><?=$value['nama_perusahaan']?></td>
                 <td><?=$value['visits']?></td>
                 <td>
-                  <a href="/admin/sendnotif/<?=$value['nimhs']?>/2/<?=$value['mitra']?>">
+                  <a href="/admin/sendnotif/<?=$value['nimhs']?>/2/<?=$value['mitra']?>"
+                     title="kirim email notifikasi">
                     <img src="/assets/img/email16.png">
                   </a>
                 </td>
