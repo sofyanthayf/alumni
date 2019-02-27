@@ -145,12 +145,21 @@ class Admin_model extends CI_Model {
   public function listNoRefs()
   {
     $amail = $this->listEmailNotif(2);
-    $this->db->select('al.namamhs, al.nimhs, al.email');
+    $this->db->select('al.namamhs, al.nimhs, al.email, us.visits, us.last_login');
+    $this->db->select('ma.mitra, mi.nama_perusahaan, ni.id_penilaian');
+    $this->db->join('users us', 'email', 'LEFT');
+    $this->db->join('mitra_alumni ma', 'nimhs','LEFT');
+    $this->db->join('mitra mi', 'ma.mitra=mi.id_mitra','LEFT');
+    $this->db->join('penilaian_alumni ni', 'al.nimhs=ni.nimhs AND ma.mitra=ni.id_mitra','LEFT');
     $this->db->from('alumni al');
+    $this->db->where('us.visits >', '0', false);
+    $this->db->where('ma.mitra IS NOT NULL', null, false);
+    $this->db->where('ma.tanggal_akhir IS NULL', null, false);
+    $this->db->where('ni.id_penilaian IS NULL', null, false);
 
     if( !empty($amail) ) $this->db->where_not_in('al.email', $amail);
-    
-    $this->db->order_by('us.last_login', 'ASC');
+
+    // $this->db->order_by('us.last_login', 'ASC');
 
     return $this->db->get()->result_array();
   }

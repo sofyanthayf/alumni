@@ -13,7 +13,6 @@
           <i class="ion-android-checkmark-circle"></i> Alumni Tanpa Data Pekerjaan
           <span class="badge badge-primary small"><?=count($list_nojobs)?></span>
         </h3>
-        
         <table class="table small">
           <thead>
             <tr>
@@ -46,7 +45,7 @@
 
         <h3>
           <i class="ion-android-checkmark-circle"></i> Alumni Tanpa Referensi Sejawat
-          <span class="badge badge-primary small"><?=count($list_nojobs)?></span>
+          <span class="badge badge-primary small"><?=count($list_norefs)?></span>
         </h3>
         <table class="table small">
           <thead>
@@ -59,15 +58,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <img src="/assets/img/email16.png">
-              </td>
-            </tr>
+            <?php foreach ($list_norefs as $key => $value): ?>
+              <tr>
+                <td><?=$value['namamhs']?></td>
+                <td><?=$value['email']?></td>
+                <td><?=$value['nama_perusahaan']?></td>
+                <td><?=$value['visits']?></td>
+                <td>
+                  <a href="/admin/sendnotif/<?=$value['nimhs']?>/2/<?=$value['mitra']?>">
+                    <img src="/assets/img/email16.png">
+                  </a>
+                </td>
+              </tr>
+            <?php endforeach; ?>
             <tr><td colspan="5"></td></tr>
           </tbody>
 

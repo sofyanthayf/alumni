@@ -105,12 +105,11 @@ class Admin extends CI_Controller {
   public function notifikasi_alumni($value='')
   {
     $data['list_nojobs'] = $this->admin_model->listNoJobs();
-    $data['maillist'] = $this->admin_model->listEmailNotif(1);
-    // $data['list_noRefs'] = $this->admin_model->listNoRefs();
+    $data['list_norefs'] = $this->admin_model->listNoRefs();
     $this->load->template('admin/notifikasialumni', $data);
   }
 
-  public function send_notifikasi($id, $tipe)
+  public function send_notifikasi($id, $tipe, $idmitra='')
   {
     $alumnus = $this->alumni_model->alumnus( $id );
     $dnotif = array(
@@ -122,10 +121,23 @@ class Admin extends CI_Controller {
 
     // kirim email
     $contact['nama'] = $alumnus['namamhs'];
+    if($idmitra != ''){
+      $mitra = $this->mitra_model->info_mitra($idmitra);
+      $contact['nama_perusahaan'] = $mitra['nama_perusahaan'];
+    }
 
     $maildata['to'] = $alumnus['email'];
-    $maildata['subject'] = "Data Pekerjaan Alumni Penting bagi STMIK KHARISMA";
-    $maildata['message'] = $this->load->view('emails/notifikasi_nojobs', $contact, true);;
+
+    switch ($tipe) {
+      case 1:
+        $maildata['subject'] = "Data Pekerjaan Alumni Penting bagi STMIK KHARISMA";
+        $maildata['message'] = $this->load->view('emails/notifikasi_nojobs', $contact, true);;
+        break;
+      case 2:
+        $maildata['subject'] = "Penilaian Kinerja Alumni Cermin bagi STMIK KHARISMA";
+        $maildata['message'] = $this->load->view('emails/notifikasi_norefs', $contact, true);;
+        break;
+    }
 
     $sent = $this->mylib->sendEmail( $maildata );
 

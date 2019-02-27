@@ -99,6 +99,7 @@ $route['admin/aktivitasuser'] = 'admin/aktivitas_user';
 $route['admin/mitra'] = 'admin/daftar_mitra';
 $route['admin/notifikasialumni'] = 'admin/notifikasi_alumni';
 $route['admin/sendnotif/(:any)/(:any)'] = 'admin/send_notifikasi/$1/$2';
+$route['admin/sendnotif/(:any)/(:any)/(:any)'] = 'admin/send_notifikasi/$1/$2/$3';
 
 
 
