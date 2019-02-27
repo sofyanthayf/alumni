@@ -153,6 +153,7 @@ class Admin_model extends CI_Model {
     $this->db->join('penilaian_alumni ni', 'al.nimhs=ni.nimhs AND ma.mitra=ni.id_mitra','LEFT');
     $this->db->from('alumni al');
     $this->db->where('us.visits >', '0', false);
+    $this->db->where('ma.status_kerja <>', '9', false);
     $this->db->where('ma.mitra IS NOT NULL', null, false);
     $this->db->where('ma.tanggal_akhir IS NULL', null, false);
     $this->db->where('ni.id_penilaian IS NULL', null, false);
