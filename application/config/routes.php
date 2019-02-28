@@ -53,6 +53,7 @@ $route['alumni/testimoni'] = 'testimoni/tulis_testimoni';
 $route['submittestimoni'] = 'testimoni/submit_testimoni';
 $route['updatetestimoni'] = 'testimoni/update_testimoni';
 
+$route['alumni'] = 'alumni';
 $route['alumni/(:any)'] = 'alumni/detailalumni/$1';
 $route['alumni/(:any)/(:any)'] = 'alumni/detailalumni/$1/$2';   // $2 = 'pdf'
 

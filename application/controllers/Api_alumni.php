@@ -15,6 +15,8 @@ class Api_alumni extends REST_Controller {
   	parent::__construct();
 
   	$this->load->model('user_model');
+  	$this->load->model('alumni_model');
+  	$this->load->model('mitra_model');
   }
 
   public function emailwaiting_get()
@@ -41,6 +43,14 @@ class Api_alumni extends REST_Controller {
     $email['registered'] = $this->user_model->validasiEmailCP( $email['address'] );
 
     $this->response( [ "email" => $email ] , 200  );
+  }
+
+  public function listalumni_get()
+  {
+    $tgl_yudisium = $this->get('t');
+    $alumni = $this->alumni_model->alumni( array( 'tanggal_sk_yudisium'=> $tgl_yudisium ) );
+
+    $this->response( [ "alumni" => $alumni ] , 200  );
   }
 
 

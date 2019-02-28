@@ -351,4 +351,15 @@ class Alumni_model extends CI_Model {
     return $query->row_array()['last_yudisum'];
   }
 
+
+  public function listYudisium()
+  {
+    $sql = "SELECT tanggal_sk_yudisium tgl_yudisium, COUNT(nimhs) jumlah
+            FROM `alumni`
+            GROUP BY tanggal_sk_yudisium
+            ORDER BY tanggal_sk_yudisium DESC";
+            
+    return $this->db->query($sql)->result_array();
+  }
+
 }

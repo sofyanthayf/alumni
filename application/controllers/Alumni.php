@@ -41,6 +41,12 @@ class Alumni extends CI_Controller {
 
   }
 
+  public function index()
+  {
+    $data['public'] = true;
+    $data['list_yudisium'] = $this->alumni_model->listYudisium();
+    $this->load->template( 'alumni/list_alumni', $data);
+  }
 
   // modified
 	public function pendidikan( $type, $idpendidikan = '' ) {
