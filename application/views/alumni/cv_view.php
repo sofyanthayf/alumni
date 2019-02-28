@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-4 member">
         <div class="container text-center">
-          <img src="<?=$alumnus['foto']?>" alt="" style="max-width:250px;"><br>
+          <img src="<?=$alumnus['foto']?>" alt="" style="max-width:250px;"><br>&nbsp;<br>
           <img src="" alt="" id="mitralogo" class="mitra-img" style="margin-left:auto">
 
         <?php
