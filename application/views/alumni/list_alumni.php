@@ -14,9 +14,11 @@
 
           <?php $year = date('Y', strtotime( $last_yudisium ) ); ?>
 
-            <div class="btn btn-light text-center">
+            <div class="btn btn-light  btn-block text-center">
               <h5 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#sub_<?=$year?>"><?=$year?></a>
+                <a data-toggle="collapse" data-parent="#accordion"
+                   href="#sub_<?=$year?>"><?=$year!='1970'?$year:'no-data'?>
+                </a>
               </h5>
             </div>
 
@@ -36,9 +38,11 @@
                   </div>
                 </div>
 
-                <div class="btn btn-light text-center">
+                <div class="btn btn-light  btn-block text-center">
                   <h5 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#sub_<?=$year?>"><?=$year?></a>
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#sub_<?=$year?>"><?=$year!='1970'?$year:'no-data'?>
+                    </a>
                   </h5>
                 </div>
 
@@ -66,7 +70,17 @@
             </div>
 
           </div>
+        </div>
 
+        <div class="text-danger text-center small">
+          <p>
+            Mohon maaf, <br>
+            sebagian kecil data alumni belum <br>
+            dilengkapi dengan Tanggal Yudisium <br>
+            sehingga untuk sementara terkelompok <br>
+            ke dalam kategori <strong>'no-data'</strong>.<br>
+            Kami sedang berusaha melengkapinya
+          </p>
         </div>
       </div>
 
