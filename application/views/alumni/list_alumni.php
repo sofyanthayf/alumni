@@ -12,7 +12,7 @@
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
 
-          <?php $year = 2019; ?>
+          <?php $year = date('Y', strtotime( $last_yudisium ) ); ?>
 
             <div class="btn btn-light text-center">
               <h5 class="panel-title">
@@ -74,7 +74,7 @@
         <h2>Daftar Alumni</h2>
 
         <h3>
-          <i class="ion-android-checkmark-circle"></i> Yudisium Tanggal:
+          <i class="ion-android-checkmark-circle"></i> Yudisium Tanggal: <span id="tanggaly"></span>
         </h3>
 
         <div id="displayalumni"></div>
@@ -92,22 +92,36 @@
 </section><!-- #about -->
 
 <script type="text/javascript">
+var lastyudisium = '<?=$last_yudisium?>';
+
+$(function(){
+  listalumni( lastyudisium );
+});
 
 function listalumni( tgyudisium ) {
+  var date    = new Date(tgyudisium),
+      yr      = date.getFullYear(),
+      month   = date.getMonth()+1,
+      // month   = date.getMonth()+1 < 10 ? '0' + date.getMonth()+1 : date.getMonth()+1,
+      day     = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
+      newDate = day + '-' + month + '-' + yr;
+  $("#tanggaly").html(newDate);
+
   $.get("/api_alumni/listalumni/t/"+tgyudisium, function(data){
-    // console.log(data.alumni);
+    console.log(data.alumni);
     var disp = '';
     $.each(data.alumni, function (index, value) {
       disp += '<div class="photogrid">';
       disp += '<div class="photogrid pic">';
 
-      if( value.mitra !== '' ){
+      if( value.mitra !== undefined ){
         disp += '<span class="mitra-badge">';
         disp += '<a href="/mitra/' + value.mitra + '" title="' + value.namamitra + '">';
         disp += '<img src="' + value.logomitra + '"></a></span>';
       }
 
-      disp += '<a href="/alumni/' + value.nimhs + '"><img src="' + value.foto + '" style="position:relative; width:100%"></a>';
+      disp += '<a href="/alumni/' + value.nimhs + '" target="_blank">';
+      disp += '<img src="' + value.foto + '"></a>';
       disp += '</div>';
       disp += '<div class="photogrid details">' + value.namamhs + '</div>'
 

@@ -710,11 +710,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .mitra-badge {
   position: absolute;
-  max-width: 55px;
+  max-width: 60px;
   /* max-height: 40px;  */
   display: block;
-  left: 5px;
-  bottom: 5px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 3;
 }
 
 
@@ -948,7 +949,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .photogrid .pic {
   width: 95%;
-  height: 200px;
+  height: 180px;
   background-position: center top;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -957,7 +958,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .photogrid .pic img {
-  min-height:100%;
+  width: 100%;
+  position:relative;
 }
 
 .photogrid .details {

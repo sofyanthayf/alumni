@@ -70,6 +70,10 @@
 
       </div>
 
+      <div class="section-header text-center">
+        <a href="/alumni">Daftar Alumni Selengkapnya >>></a>
+      </div>
+
     </div>
 
   </div>
