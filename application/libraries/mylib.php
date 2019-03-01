@@ -72,13 +72,14 @@ class Mylib
           );
 
     $this->badan_usaha = array(
-              0 => 'Pemerintah',
-              1 => 'Militer (TNI/POLRI)',
-              2 => 'BUMN',
-              3 => 'BUMD',
-              4 => 'Swasta',
+              0 => 'Pemerintah Pusat/Kementrian/Lembaga Negara',
+              1 => 'Pemerintah Daerah',
+              2 => 'Militer (TNI/POLRI)',
+              3 => 'BUMN',
+              4 => 'BUMD',
+              5 => 'Swasta',
               8 => 'Asing',
-              9 => 'Non Badan Hukum'
+              9 => 'Belum/Tidak Berbadan Hukum'
           );
 
     $this->status_kerja = array(
@@ -111,7 +112,7 @@ class Mylib
               8 => 'email sudah terdaftar, hanya lupa password',
               9 => 'disetujui'
           );
-  
+
   }
 
 
