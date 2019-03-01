@@ -113,7 +113,7 @@ class Admin_model extends CI_Model {
     $this->db->select('us.email, us.email, us.last_login, us.visits');
     $this->db->from('users us');
     if( $stat == 0 ){
-      $this->db->select('al.namamhs nama, al.nimhs id');
+      $this->db->select('al.namamhs nama, al.nimhs id, YEAR(tanggal_sk_yudisium) thnlulus');
       $this->db->join('alumni al', 'email', 'LEFT');
     } else {
       $this->db->select('cp.id id, cp.nama');

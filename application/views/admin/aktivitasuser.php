@@ -53,7 +53,13 @@ function refreshTable( stat = 0 ){
           },
     sAjaxDataProp: "users",
     columns: [  {data: 'id'},
-                {data: 'nama'},
+                {render: function(data, type, row){
+                    if( stat == '0' ){
+                      return row.nama + ' (' + row.thnlulus + ')';
+                    } else {
+                      return row.nama
+                    }
+                }},
                 {data: 'email'},
                 {data: 'last_login'},
                 {data: 'visits', "className": "dt-center"},

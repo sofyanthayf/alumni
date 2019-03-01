@@ -10,7 +10,9 @@
 
   <a class="btn btn-light btn-block" href="/admin/validasialumni" title="Ganti Password" style="margin:15px;">
     <img src="/assets/img/mhs16.png"> Validasi Alumni
-    <span class="badge badge-primary"><?=count($validasiwaitinglist)>0 ? count($validasiwaitinglist) : ''?></span>
+    <sup>
+      <span class="badge badge-primary"><?=count($validasiwaitinglist)>0 ? count($validasiwaitinglist) : ''?></span>
+    </sup>
   </a>
 
   <a class="btn btn-light btn-block" href="/admin/aktivitasuser" title="Lihat Aktivitas User" style="margin:15px;">
@@ -19,7 +21,9 @@
 
   <a class="btn btn-light btn-block" href="/admin/mitra" title="Lihat Aktivitas User" style="margin:15px;">
     <img src="/assets/img/web16.png"> Perusahaan Mitra
-    <span class="badge badge-primary"><?= $mitrabaru>0 ? $mitrabaru.' new' : ''?></span>
+    <sup>
+      <span class="badge badge-primary"><?= $mitrabaru>0 ? $mitrabaru.' new' : ''?></span>
+    </sup>
   </a>
 
   <a class="btn btn-light btn-block" href="/admin/notifikasialumni" title="Lihat Aktivitas User" style="margin:15px;">

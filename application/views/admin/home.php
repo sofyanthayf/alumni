@@ -11,7 +11,10 @@
 
         <h3>
           <i class="ion-android-checkmark-circle"></i>
-          Kunjungan Alumni &nbsp; <span id="totalvisit" class="badge badge-primary"></span>
+          Kunjungan Alumni &nbsp;
+          <sup>
+            <span id="totalvisit" class="badge badge-primary"></span>
+          </sup>
         </h3>
 
         <table class="table">
