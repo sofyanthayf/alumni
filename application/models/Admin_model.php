@@ -146,7 +146,7 @@ class Admin_model extends CI_Model {
   {
     $amail = $this->listEmailNotif(2);
     $this->db->select('al.namamhs, al.nimhs, al.email, us.visits, us.last_login');
-    $this->db->select('ma.mitra, mi.nama_perusahaan, ni.id_penilaian');
+    $this->db->select('ma.mitra, mi.nama_perusahaan, ni.id_penilaian, YEAR(al.tanggal_sk_yudisium) thn_lulus');
     $this->db->join('users us', 'email', 'LEFT');
     $this->db->join('mitra_alumni ma', 'nimhs','LEFT');
     $this->db->join('mitra mi', 'ma.mitra=mi.id_mitra','LEFT');

@@ -61,7 +61,7 @@
           <tbody>
             <?php foreach ($list_norefs as $key => $value): ?>
               <tr>
-                <td><?=$value['namamhs']?></td>
+                <td><?=$value['namamhs']?> (<?=$value['thn_lulus']?>)</td>
                 <td><?=$value['email']?></td>
                 <td><?=$value['nama_perusahaan']?></td>
                 <td><?=$value['visits']?></td>
