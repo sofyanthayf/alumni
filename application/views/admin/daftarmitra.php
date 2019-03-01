@@ -13,9 +13,7 @@
           <thead>
             <th colspan="2">
               Perusahaan &nbsp;
-              <sup>
-                <span class="badge badge-primary"><?=count($mitra)?></span>
-              </sup>
+              <span class="badge badge-primary"><?=count($mitra)?></span>
             </th>
             <th class="text-center">Status</th>
             <th class="text-center">Alumni</th>

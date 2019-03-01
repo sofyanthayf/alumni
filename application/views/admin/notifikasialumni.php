@@ -26,7 +26,7 @@
           <tbody>
             <?php foreach ($list_nojobs as $key => $value): ?>
               <tr>
-                <td><?=$value['namamhs']?></td>
+                <td><?=$value['namamhs']?> (<?=$value['thn_lulus']?>)</td>
                 <td><?=$value['email']?></td>
                 <td><?=$value['visits']?></td>
                 <td><?=$value['last_login']?></td>

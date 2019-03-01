@@ -127,7 +127,7 @@ class Admin_model extends CI_Model {
   public function listNoJobs()
   {
     $amail = $this->listEmailNotif(1);
-    $this->db->select('al.namamhs, al.nimhs, al.email');
+    $this->db->select('al.namamhs, al.nimhs, al.email, YEAR(al.tanggal_sk_yudisium) thn_lulus');
     $this->db->select('us.visits, us.last_login, mi.mitra');
     $this->db->from('alumni al');
     $this->db->join('users us', 'email', 'LEFT');
