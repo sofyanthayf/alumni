@@ -84,7 +84,7 @@ class Mitra_model extends CI_Model {
     public function daftar_mitra()
     {
       $this->db->distinct();    // agar tak berulang
-      $this->db->select('mitra, nama_perusahaan, brand, statusbh, website');
+      $this->db->select('mitra, nama_perusahaan, brand, statusbh, website, views');
       $this->db->join('mitra', 'mitra_alumni.mitra = mitra.id_mitra');  // join untuk dapatkan nama perusahaan
       $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
       $this->db->order_by('brand');
@@ -254,6 +254,20 @@ class Mitra_model extends CI_Model {
       $this->db->join( 'alumni', 'nimhs', 'LEFT' );
       $query = $this->db->get('mitra_alumni');
       return $query->result_array();
+    }
+
+    public function gotviews( $id_mitra )
+    {
+      $this->db->where( 'id_mitra', $id_mitra );
+      $this->db->set( 'views', 'views+1', FALSE );
+      $this->db->update( 'mitra' );
+    }
+
+    public function getviews()
+    {
+      $this->db->select('COUNT(*) mitrabaru');
+      $this->db->where('views <', 2);
+      return $this->db->get('mitra')->row_array()['mitrabaru'];
     }
 
 }

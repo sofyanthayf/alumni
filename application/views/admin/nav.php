@@ -19,6 +19,7 @@
 
   <a class="btn btn-light btn-block" href="/admin/mitra" title="Lihat Aktivitas User" style="margin:15px;">
     <img src="/assets/img/web16.png"> Perusahaan Mitra
+    <span class="badge badge-primary"><?= $mitrabaru>0 ? $mitrabaru.' new' : ''?></span>
   </a>
 
   <a class="btn btn-light btn-block" href="/admin/notifikasialumni" title="Lihat Aktivitas User" style="margin:15px;">

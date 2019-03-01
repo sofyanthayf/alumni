@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-4 about-img text-center">
         <img src="<?=$mitra['logo']?>" alt="" class="mitra-img" style="margin-left:auto">
-
+        <br>&nbsp;<br>
         <?php if ($this->session->who == 'ad'): ?>
           <a class="btn btn-light btn-block" href="/mitra/usulanedit/<?=$mitra['id_mitra']?>" title="Penyesuaian Data" style="margin:15px;">
             <img src="/assets/img/edit16.png"> Edit Data Perusahaan
@@ -12,7 +12,9 @@
       </div>
 
       <div class="col-lg-8 content">
-        <h2><?=$mitra['nama_perusahaan']?></h2>
+        <h2>
+          <?=$mitra['nama_perusahaan']?>
+        </h2>
         <h3>
           industry: <strong><?=$mitra['bidang']?></strong><br>
           brand: <strong><?=$mitra['brand']?></strong><br>

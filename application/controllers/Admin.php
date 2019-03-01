@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
     $data['home'] = true;
     $data['visit'] = $this->admin_model->aktivitasAlumniByVisit();
     $data['validasiwaitinglist'] = $this->admin_model->validasiWaitingList();
+    $data['mitrabaru'] = $this->mitra_model->getviews();
     $this->load->template('admin/home', $data);
   }
 

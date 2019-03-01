@@ -26,6 +26,7 @@
                 <td>
                   <a href="/mitra/<?=$value['mitra']?>" target="_blank">
                     <strong><?=$value['nama_perusahaan']?></strong>
+                    <sup><span class="badge badge-danger small"><?= ($this->session->who == 'ad' && $value['views'] < 2) ? 'new' : '' ?></span></sup>
                   </a>
                   <?=!empty($value['brand'])?'<br>'.$value['brand']:''?>
                   <?php if (!empty($value['website'])): ?>
