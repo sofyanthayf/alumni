@@ -55,7 +55,7 @@
 
                     <tr>
                       <td class="text-center">
-                        <a href="#" onclick="listalumni('<?=$value['tgl_yudisium']?>')">
+                        <a href="#" onclick="listalumniByTgl('<?=$value['tgl_yudisium']?>')">
                           <?=date('d-m-Y', strtotime($value['tgl_yudisium']))?>
                         </a>
                       </td>
@@ -87,8 +87,17 @@
       <div class="col-lg-9 content">
         <h2>Daftar Alumni</h2>
 
+        <table width="100%">
+          <tr>
+            <td class="datafields">Search:</td>
+            <td width="40%">
+              <input type="text" id="txtsearch" class="form-control" placeholder="Nama atau NIM alumni">
+            </td>
+          </tr>
+        </table>
+
         <h3>
-          <i class="ion-android-checkmark-circle"></i> Yudisium Tanggal: <span id="tanggaly"></span>
+          <i class="ion-android-checkmark-circle"></i> <span id="resultstate"></span>
         </h3>
 
         <div id="displayalumni"></div>
@@ -109,20 +118,37 @@
 var lastyudisium = '<?=$last_yudisium?>';
 
 $(function(){
-  listalumni( lastyudisium );
+  listalumniByTgl( lastyudisium );
 });
 
-function listalumni( tgyudisium ) {
+$("#txtsearch").keyup(function(){
+
+  if( $(this).val().length >= 3 ){
+    getAlumni( '/k/' + $(this).val() );
+    $("#resultstate").html( "Search results for: <strong>'" + $(this).val() + "'</strong>" );
+  }
+
+  if( $(this).val().length == 0 ){
+    listalumniByTgl( lastyudisium );
+  }
+
+});
+
+function listalumniByTgl( tgyudisium ) {
   var date    = new Date(tgyudisium),
       yr      = date.getFullYear(),
       month   = date.getMonth()+1,
       // month   = date.getMonth()+1 < 10 ? '0' + date.getMonth()+1 : date.getMonth()+1,
       day     = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
       newDate = day + '-' + month + '-' + yr;
-  $("#tanggaly").html(newDate);
+  $("#resultstate").html( "Yudisium Tanggal: <strong>" + newDate + "</strong>");
 
-  $.get("/api_alumni/listalumni/t/"+tgyudisium, function(data){
-    console.log(data.alumni);
+  getAlumni( '/t/' + tgyudisium );
+}
+
+function getAlumni( param ) {
+  $.get( "/api_alumni/listalumni" + param, function(data){
+    // console.log(data.alumni);
     var disp = '';
     $.each(data.alumni, function (index, value) {
       disp += '<div class="photogrid">';
@@ -135,7 +161,7 @@ function listalumni( tgyudisium ) {
       }
 
       disp += '<a href="/alumni/' + value.nimhs + '" target="_blank">';
-      disp += '<img src="' + value.foto + '"></a>';
+      disp += '<img src="' + value.foto + '" onerror="imgError(this,\'' + value.sex + '\' );"></a>';
       disp += '</div>';
       disp += '<div class="photogrid details">' + value.namamhs + '</div>'
 
@@ -143,6 +169,12 @@ function listalumni( tgyudisium ) {
     });
     $("#displayalumni").html(disp);
   });
+}
+
+function imgError(image, lp) {
+    image.onerror = "";
+    image.src = "/assets/img/alumni/nopic_" + lp + ".png";
+    return true;
 }
 
 </script>

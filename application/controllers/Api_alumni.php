@@ -47,8 +47,17 @@ class Api_alumni extends REST_Controller {
 
   public function listalumni_get()
   {
-    $tgl_yudisium = $this->get('t');
-    $alumni = $this->alumni_model->alumni( array( 'tanggal_sk_yudisium'=> $tgl_yudisium ) );
+    // $tgl_yudisium = $this->get('t');
+    // $alumni = $this->alumni_model->alumni( array( 'tanggal_sk_yudisium'=> $tgl_yudisium ) );
+
+    if( null !== $this->get('t') ){
+      $alumni = $this->alumni_model->alumni( array( 'tanggal_sk_yudisium'=> $this->get('t') ) );
+    }
+
+    if( null !== $this->get('k') ){
+      $key = $this->get('k');
+      $alumni = $this->alumni_model->alumni( "nimhs LIKE '%".$key."%' OR namamhs LIKE '%".$key."%'"  );
+    }
 
     $this->response( [ "alumni" => $alumni ] , 200  );
   }
