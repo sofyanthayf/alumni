@@ -128,7 +128,7 @@ class Admin_model extends CI_Model {
   {
     $amail = $this->listEmailNotif(1);
     $this->db->select('al.namamhs, al.nimhs, al.email, YEAR(al.tanggal_sk_yudisium) thn_lulus');
-    $this->db->select('us.visits, us.last_login, mi.mitra');
+    $this->db->select('us.visits, CONVERT_TZ(us.last_login,\'+00:00\',\'+08:00\') last_login, mi.mitra');
     $this->db->from('alumni al');
     $this->db->join('users us', 'email', 'LEFT');
     $this->db->join('mitra_alumni mi', 'nimhs', 'LEFT');
@@ -145,7 +145,7 @@ class Admin_model extends CI_Model {
   public function listNoRefs()
   {
     $amail = $this->listEmailNotif(2);
-    $this->db->select('al.namamhs, al.nimhs, al.email, us.visits, us.last_login');
+    $this->db->select('al.namamhs, al.nimhs, al.email, us.visits, CONVERT_TZ(us.last_login,\'+00:00\',\'+08:00\') last_login');
     $this->db->select('ma.mitra, mi.nama_perusahaan, ni.id_penilaian, YEAR(al.tanggal_sk_yudisium) thn_lulus');
     $this->db->join('users us', 'email', 'LEFT');
     $this->db->join('mitra_alumni ma', 'nimhs','LEFT');
