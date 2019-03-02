@@ -106,10 +106,21 @@ class User_model extends CI_Model {
       // $url = "https://email-checker.p.rapidapi.com/verify/v1?email=sofyan.thayf%40kharisma.ac.id";
       // $key = "3a9760dacmsh493b2c02bc77616p1fc1ecjsn8d5432be551";
 
-      $url = getenv( 'RAPID_API_MAIL_CHECKER_URL' ) . urlencode( $email );
-      var_dump($url);
-      $response = $this->unirest->get( $url, array( "X-RapidAPI-Key" => getenv('RAPID_API_MAIL_CHECKER_KEY') ) );
-
+      // $response = Unirest\Request::post("https://zozor54-email-checker-v1.p.rapidapi.com/emailValidate",
+      //   array(
+      //     "X-RapidAPI-Key" => "f3a9760dacmsh493b2c02bc77616p1fc1ecjsn8d5432be5515",
+      //     "Content-Type" => "application/x-www-form-urlencoded"
+      //   ),
+      //   array(
+      //     "email" => "sofyanthayf@gmail.com"
+      //   )
+      // );
+      // $url = getenv( 'RAPID_API_MAIL_CHECKER_URL' ) . urlencode( $email );
+      // var_dump($url);
+      $response = $this->unirest->post( "https://zozor54-email-checker-v1.p.rapidapi.com/emailValidate",
+                                        array( "X-RapidAPI-Key" => "f3a9760dacmsh493b2c02bc77616p1fc1ecjsn8d5432be5515",
+                                               "Content-Type" => "application/x-www-form-urlencoded" ),
+                                        array( "email" => $email ) );
       return $response;
     }
 

@@ -55,7 +55,7 @@ class Api_mitra extends REST_Controller {
     $email = array();
     $email['address'] = $m;
     $email['registered'] = $this->user_model->emailIsAlumni( $email['address'] );
-    $email['valid'] = $this->user_model->emailValid( $m );
+    // $email['valid'] = $this->user_model->emailValid( $m );
 
     $this->response( [ "email" => $email ] , 200  );
   }

@@ -110,7 +110,7 @@ class Admin_model extends CI_Model {
 
   public function aktivitasUser($stat)
   {
-    $this->db->select('us.email, us.email, us.last_login, us.visits');
+    $this->db->select('us.email, us.email, CONVERT_TZ(us.last_login,\'+00:00\',\'+08:00\') last_login, us.visits');
     $this->db->from('users us');
     if( $stat == 0 ){
       $this->db->select('al.namamhs nama, al.nimhs id, YEAR(tanggal_sk_yudisium) thnlulus');
