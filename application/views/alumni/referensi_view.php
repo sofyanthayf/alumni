@@ -222,10 +222,11 @@
       email = email.replace(".", "__dot__");
       email = email.replace("@", "__at__");
       $.get("/api_mitra/emailvalid/m/"+email, function(result){
+        console.log(result);
         if(result.email.registered == 1){
           $("#warn_email_" + p).html('alamat email telah terdaftar juga sebagai email alumni, '+
-          'gunakan alamat email yang lain (lebih baik jika menggunakan '+
-          'alamat email official)');
+                                     'gunakan alamat email yang lain (lebih baik jika menggunakan '+
+                                     'alamat email official)');
           $("#warn_email_" + p).show();
           $("#tbsimpan").prop('disabled', true);
           valid++;

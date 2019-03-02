@@ -91,10 +91,27 @@ class User_model extends CI_Model {
       if( $query->num_rows() > 0 ){
         return 1;
       }
-
       return 0;
     }
 
+    public function emailValid($email)
+    {
+      // $this->CI->load->library('unirest');
+      // $response = $this->unirest->get($url, $headers = array());
+      // $response = $this->unirest->post($url, $headers = array(), $body = NULL);
+      // $response = $this->unirest->put($url, $headers = array(), $body = NULL);
+      // $response = $this->unirest->patch($url, $headers = array(), $body = NULL);
+      // $response = $this->unirest->delete($url, $headers = array());
+
+      // $url = "https://email-checker.p.rapidapi.com/verify/v1?email=sofyan.thayf%40kharisma.ac.id";
+      // $key = "3a9760dacmsh493b2c02bc77616p1fc1ecjsn8d5432be551";
+
+      $url = getenv( 'RAPID_API_MAIL_CHECKER_URL' ) . urlencode( $email );
+      var_dump($url);
+      $response = $this->unirest->get( $url, array( "X-RapidAPI-Key" => getenv('RAPID_API_MAIL_CHECKER_KEY') ) );
+
+      return $response;
+    }
 
     public function validasiWaitingList( $email )
     {

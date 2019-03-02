@@ -39,7 +39,7 @@
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 <!-- Contact Form JavaScript File -->
-<script src="contactform/contactform.js"></script>
+<!-- <script src="contactform/contactform.js"></script> -->
 
 <!-- Template Main Javascript File -->
 <script src="/assets/js/main.js"></script>

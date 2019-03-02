@@ -449,7 +449,7 @@ class Alumni extends CI_Controller {
                 'telepon_cabang' => $this->input->post('teleponkc'),
                 'kodepos_cabang' => $this->input->post('kodeposkc')
               );
-      $insertkc = $this->alumni_model->prosesInsert('mitra_cabang',$datakc);
+     $insertkc = $this->alumni_model->prosesInsert('mitra_cabang',$datakc);
     }
 
     // simpan data pekerjaan
@@ -468,7 +468,10 @@ class Alumni extends CI_Controller {
                 'tanggal_akhir' => ( !empty($this->input->post('tglakhirkerja')) && $this->input->post('tglakhirkerja')!='0000-00-00' ) ?
                                       date('Y-m-d', strtotime($this->input->post('tglakhirkerja'))):null
               );
-    $insertpk = $this->alumni_model->prosesInsert('mitra_alumni',$datapk);
+
+    if( empty( $this->alumni_model->getDataPekerjaan($this->session->uid, $id_mitra, $id_cabang) )){
+      $insertpk = $this->alumni_model->prosesInsert('mitra_alumni',$datapk);
+    }
 
     // jika masih bekerja, tambahkan contact person
     if( empty($this->input->post('tglakhirkerja')) ){

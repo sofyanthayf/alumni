@@ -476,6 +476,7 @@ $("#namakc").autocomplete({
               label: value.nama_cabang,
               value: value.nama_cabang,
 
+              idkc: value.id_cabang,
               alamatkc: value.alamat_cabang,
               teleponkc: value.telepon_cabang,
               kodeposkc: value.kodepos_cabang,
@@ -493,7 +494,7 @@ $("#namakc").autocomplete({
     $("#kodeposkc").val( ui.item.kodeposkc );
 
     $("#kotakc option[value=" + ui.item.kotakc + "]").prop( 'selected', true );
-
+    $("#id_cabang").val( ui.item.idkc );
     lockFieldKc();
   },
   change: function( event, ui ){

@@ -51,10 +51,11 @@ class Api_mitra extends REST_Controller {
     $m = $this->get('m');
     $m = str_replace( '__dot__', '.', $m );
     $m = str_replace( '__at__', '@', $m );
-    
+
     $email = array();
     $email['address'] = $m;
     $email['registered'] = $this->user_model->emailIsAlumni( $email['address'] );
+    $email['valid'] = $this->user_model->emailValid( $m );
 
     $this->response( [ "email" => $email ] , 200  );
   }
