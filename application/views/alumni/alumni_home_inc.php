@@ -42,7 +42,7 @@
               </span>
             <?php endif; ?>
             <a href="/alumni/<?=$key['nimhs']?>">
-              <img src="<?=$key['foto']?>">
+              <img src="<?=$key['foto']?>" onerror="imgError(this,'<?=$key['sex']?>');">
             </a>
           </div>
 
@@ -78,3 +78,11 @@
 
   </div>
 </section><!-- #alumni -->
+
+<script type="text/javascript">
+function imgError(image, lp) {
+    image.onerror = "";
+    image.src = "/assets/img/alumni/nopic_" + lp + ".png";
+    return true;
+}
+</script>
