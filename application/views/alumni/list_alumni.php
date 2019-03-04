@@ -116,6 +116,7 @@
 
 <script type="text/javascript">
 var lastyudisium = '<?=$last_yudisium?>';
+var bysearch = false;
 
 $(function(){
   listalumniByTgl( lastyudisium );
@@ -124,6 +125,7 @@ $(function(){
 $("#txtsearch").keyup(function(){
 
   if( $(this).val().length >= 3 ){
+    bysearch = true;
     getAlumni( '/k/' + $(this).val() );
     $("#resultstate").html( "Search results for: <strong>'" + $(this).val() + "'</strong>" );
   }
@@ -135,14 +137,8 @@ $("#txtsearch").keyup(function(){
 });
 
 function listalumniByTgl( tgyudisium ) {
-  var date    = new Date(tgyudisium),
-      yr      = date.getFullYear(),
-      month   = date.getMonth()+1,
-      // month   = date.getMonth()+1 < 10 ? '0' + date.getMonth()+1 : date.getMonth()+1,
-      day     = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
-      newDate = day + '-' + month + '-' + yr;
-  $("#resultstate").html( "Yudisium Tanggal: <strong>" + newDate + "</strong>");
-
+  $("#resultstate").html( "Yudisium Tanggal: <strong>" + formatTgl(tgyudisium) + "</strong>");
+  bysearch = false;
   getAlumni( '/t/' + tgyudisium );
 }
 
@@ -163,12 +159,28 @@ function getAlumni( param ) {
       disp += '<a href="/alumni/' + value.nimhs + '" target="_blank">';
       disp += '<img src="' + value.foto + '" onerror="imgError(this,\'' + value.sex + '\' );"></a>';
       disp += '</div>';
-      disp += '<div class="photogrid details">' + value.namamhs + '</div>'
+      disp += '<div class="photogrid details">' + value.namamhs;
+
+      if(bysearch){
+        disp += '<br>(lulus: ' + formatTgl(value.tanggal_sk_yudisium) + ')';
+      }
+
+      disp += '</div>'
 
       disp += '</div>';
     });
     $("#displayalumni").html(disp);
   });
+}
+
+function formatTgl( tanggal ){
+  var date    = new Date(tanggal),
+      yr      = date.getFullYear(),
+      month   = date.getMonth()+1,
+      // month   = date.getMonth()+1 < 10 ? '0' + date.getMonth()+1 : date.getMonth()+1,
+      day     = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
+      newDate = day + '-' + month + '-' + yr;
+  return newDate;
 }
 
 function imgError(image, lp) {

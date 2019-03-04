@@ -11,7 +11,6 @@ class Wisuda extends CI_Controller {
     parent::__construct();
     $this->load->model('admin_model');
     $this->load->model('alumni_model');
-    $this->load->model('mitra_model');
 
     $this->session->admin = true;
 
