@@ -15,7 +15,8 @@ class Admin extends CI_Controller {
 
     $this->session->admin = true;
 
-    if($this->session->who != 'ad') redirect('/');
+    if( !isset( $this->session->who ) ) redirect('/admin/login');
+    if( $this->session->who != 'ad' ) redirect('/');
   }
 
   public function index()

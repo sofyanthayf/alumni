@@ -165,9 +165,8 @@ function getAlumni( param ) {
         disp += '<br>(lulus: ' + formatTgl(value.tanggal_sk_yudisium) + ')';
       }
 
-      disp += '</div>'
+      disp += '</div></div>'
 
-      disp += '</div>';
     });
     $("#displayalumni").html(disp);
   });
