@@ -49,6 +49,17 @@
   <script src="/assets/lib/jquery/jquery-migrate.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="/assets/js/jquery.dataTables.js" type="text/javascript" charset="utf8"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139903258-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139903258-1');
+  </script>
+
 </head>
 
 <body id="body">
