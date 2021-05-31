@@ -301,14 +301,23 @@ class Alumni_model extends CI_Model {
     return $query->row_array();
   }
 
+  public function lastJob($nimhs)
+  {
+    $this->db->where('nimhs',$nimhs);
+    $this->db->where('tanggal_akhir IS NULL',null, false);
+    $query = $this->db->get('mitra_alumni');
+    return $query->row_array();
+  }
+
   public function GetCPReferensi( $nimhs, $mitra, $cabang='')
   {
+    $this->db->distinct();
     $this->db->select('ac.nimhs, ac.id_mitra, ac.id_cabang, ac.email_contactperson');
     $this->db->from('penilaian_alumni ac');
     $this->db->from('contact_person cp', 'ac.email_contactperson=cp.email', 'LEFT');
 
-    $this->db->where('nimhs',$nimhs);
-    $this->db->where('mitra',$mitra);
+    $this->db->where('ac.nimhs',$nimhs);
+    $this->db->where('ac.id_mitra',$mitra);
 
     if( $cabang != '' ){
       $this->db->where('cabang_mitra', $cabang);
@@ -316,7 +325,7 @@ class Alumni_model extends CI_Model {
 
     $query = $this->db->get();
 
-    return $query->row_array();
+    return $query->result_array();
   }
 
   public function jumlahAlumni( $prodi = '' )
@@ -358,8 +367,15 @@ class Alumni_model extends CI_Model {
             FROM `alumni`
             GROUP BY tanggal_sk_yudisium
             ORDER BY tanggal_sk_yudisium DESC";
-            
+
     return $this->db->query($sql)->result_array();
   }
 
+    //test CURL
+    public function getAlumniFromAPI($nim)
+    {
+      $API = "https://siska.kharisma.ac.id/api/detailmhs/nim/";
+      $result = $this->curl->simple_get( $API.$nim );
+      return json_decode($result, true);
+    }
 }

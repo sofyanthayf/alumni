@@ -88,6 +88,9 @@ $route['default_controller'] = 'home';
 $route['pendidikan_alumni'] = 'pendidikan';
 $route['cv_alumni'] = 'cv';
 
+$route['wisuda'] = 'wisuda';
+$route['wisuda/registrasi'] = 'wisuda/mendaftar_wisuda';
+$route['wisuda/registrasi/(:num)'] = 'wisuda/mendaftar_wisuda/$1';
 
 $route['admin'] = 'admin';
 $route['admin/login'] = 'user/form_login_admin';

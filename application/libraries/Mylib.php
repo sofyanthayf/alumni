@@ -16,6 +16,8 @@ class Mylib
   public $daftar_kota;
   public $bidang_keahlian;
   public $status_validasi;
+  public $event;
+  public $nama_hari;
 
   function __construct() {
       $this->CI =& get_instance();
@@ -113,6 +115,19 @@ class Mylib
               9 => 'disetujui'
           );
 
+    $this->event = array(
+              '1' => 'Wisuda',
+              '2' => 'Job Fair/In-House Recruitment',
+              '3' => 'Training',
+              '4' => 'Sertifikasi',
+              '5' => 'Reuni',
+              '6' => 'Seminar/Konfrensi',
+              '7' => 'Rapat Alumni/IKA',
+              '99' => 'Lainnya'
+            );
+
+    $this->nama_hari = array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu' );
+
   }
 
 
@@ -152,6 +167,27 @@ class Mylib
 
       return $mail_err;
     }
+  }
+
+
+  public function terbilang( $nilai ) {
+    $angka = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
+    if ($nilai < 12)
+      return " " . $angka[$nilai];
+    elseif ($nilai < 20)
+      return $this->terbilang($nilai - 10) . " Belas";
+    elseif ($nilai < 100)
+      return $this->terbilang($nilai / 10) . " Puluh" . $this->terbilang($nilai % 10);
+    elseif ($nilai < 200)
+      return "Seratus" . $this->terbilang($nilai - 100);
+    elseif ($nilai < 1000)
+      return $this->terbilang($nilai / 100) . " Ratus" . $this->terbilang($nilai % 100);
+    elseif ($nilai < 2000)
+      return "Seribu" . $this->terbilang($nilai - 1000);
+    elseif ($nilai < 1000000)
+      return $this->terbilang($nilai / 1000) . " Ribu" . $this->terbilang($nilai % 1000);
+    elseif ($nilai < 1000000000)
+      return $this->terbilang($nilai / 1000000) . " Juta" . $this->terbilang($nilai % 1000000);
   }
 
 

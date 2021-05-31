@@ -213,6 +213,10 @@ class Alumni extends CI_Controller {
     $data['public'] = true;
     $data['alumnus'] = $this->alumni_model->alumnus( $nimhs );
 
+    //test CURL
+    // $data['api'] = $this->alumni_model->getAlumniFromAPI( $nimhs );
+    // var_dump( $data['api']['namamhs']);
+
     if( $pdf != 'pdf' ){
 
       $this->load->template('alumni/cv_view',$data);

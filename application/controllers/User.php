@@ -258,6 +258,8 @@ class User extends CI_Controller {
 
       $this->session->set_userdata( $user );
       $this->user_model->update_visits($email, $ipaddr);
+
+      if( isset( $this->session->last_url ) ) redirect( $this->session->last_url );
       redirect( '/alumni/'.$this->session->userdata('uid') );
 
     } else {

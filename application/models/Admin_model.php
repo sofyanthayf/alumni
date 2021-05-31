@@ -67,7 +67,7 @@ class Admin_model extends CI_Model {
   public function aktivitasAlumniByVisit()
   {
     $sql = "SELECT
-              ANY_VALUE(IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data')) thn_lulus,
+              IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data') thn_lulus,
               COUNT(a.nimhs) jml_lulusan,
               AVG(u.visits) avg_visit
             FROM `users` u
@@ -83,7 +83,7 @@ class Admin_model extends CI_Model {
   public function requestValidasiValid()
   {
     $sql = "SELECT
-              ANY_VALUE(IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data')) thn_lulus,
+              IF(a.tanggal_sk_yudisium IS NOT NULL,YEAR(a.tanggal_sk_yudisium),'no-data') thn_lulus,
               COUNT(a.nimhs) jml_lulusan,
               SUM(IF(u.validasi=9,1,0)) accepted,
               SUM(IF(u.validasi=8,1,0)) registered
