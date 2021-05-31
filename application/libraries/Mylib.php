@@ -162,8 +162,8 @@ class Mylib
     if( $this->email->send() ) {
       return true;
     } else {
-      $mail_err = '';
-			foreach ( $this->email->get_debugger_messages() as $debugger_message ) $mail_err .= $debugger_message;
+      $mail_err = 'mail error';
+			// foreach ( $this->email->get_debugger_messages() as $debugger_message ) $mail_err .= $debugger_message;
 
       return $mail_err;
     }
