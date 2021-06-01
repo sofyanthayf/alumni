@@ -76,10 +76,10 @@ class Mylib
     $this->badan_usaha = array(
               0 => 'Pemerintah Pusat/Kementrian/Lembaga Negara',
               1 => 'Pemerintah Daerah',
-              2 => 'Militer (TNI/POLRI)',
-              3 => 'BUMN',
-              4 => 'BUMD',
-              5 => 'Swasta',
+              2 => 'BUMN',
+              3 => 'BUMD',
+              4 => 'Swasta',
+              5 => 'TNI/POLRI',
               8 => 'Asing',
               9 => 'Belum/Tidak Berbadan Hukum'
           );

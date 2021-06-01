@@ -8,7 +8,6 @@
 
       <div class="col-lg-8 content">
         <h2>Perusahaan Mitra</h2>
-
         <table class="table">
           <thead>
             <th colspan="2">
@@ -24,7 +23,7 @@
                 <td class="text-center" width="120px">
                   <img src="<?=$value['logo']?>" style="max-width: 120px; max-height:60px;"></td>
                 <td>
-                  <a href="/mitra/<?=$value['mitra']?>" target="_blank">
+                  <a href="/mitra/<?=$value['id_mitra']?>" target="_blank">
                     <strong><?=$value['nama_perusahaan']?></strong>
                     <sup><span class="badge badge-danger small"><?= ($this->session->who == 'ad' && $value['views'] < 2) ? 'new' : '' ?></span></sup>
                   </a>
@@ -36,7 +35,7 @@
                   <?php endif; ?>
                 </td>
                 <td class="text-center"><?=$this->mylib->badan_usaha[$value['statusbh']]?></td>
-                <td class="text-center"><?=$value['jml_alumni']?> alumni</td>
+                <td class="text-center"><?=($value['jml_alumni']>0)?$value['jml_alumni'].' alumni':''?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
