@@ -81,23 +81,26 @@ class Mitra_model extends CI_Model {
     }
 
 
-    public function daftar_mitra()
+    public function daftar_mitra($all = FALSE)
     {
-      // $this->db->distinct();    // agar tak berulang
-      // $this->db->select('mitra, nama_perusahaan, brand, statusbh, website, views');
-      // $this->db->join('mitra', 'mitra_alumni.mitra = mitra.id_mitra');  // join untuk dapatkan nama perusahaan
-      // $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
-      // $this->db->order_by('brand');
-      // $query = $this->db->get('mitra_alumni');
-      $this->db->distinct();    // agar tak berulang
-      $this->db->select('id_mitra, mitra, nama_perusahaan, brand, statusbh, website, views');
-      $this->db->select('COUNT(nimhs) jml_alumni');
-      $this->db->join('mitra_alumni', 'mitra_alumni.mitra = mitra.id_mitra', 'LEFT');  // join untuk dapatkan nama perusahaan
-      $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
-      $this->db->group_by('id_mitra');
-      $this->db->order_by('jml_alumni', 'DESC');
-      $this->db->order_by('brand');
-      $query = $this->db->get('mitra');
+      if(!$all){
+        $this->db->distinct();    // agar tak berulang
+        $this->db->select('id_mitra, mitra, nama_perusahaan, brand, statusbh, website, views');
+        $this->db->join('mitra', 'mitra_alumni.mitra = mitra.id_mitra');  // join untuk dapatkan nama perusahaan
+        $this->db->where(array('tanggal_akhir' => NULL));  // masih bekerja
+        $this->db->order_by('brand');
+        $query = $this->db->get('mitra_alumni');
+      } else {
+        $this->db->distinct();    
+        $this->db->select('id_mitra, mitra, nama_perusahaan, brand, statusbh, website, views');
+        $this->db->select('COUNT(nimhs) jml_alumni');
+        $this->db->join('mitra_alumni', 'mitra_alumni.mitra = mitra.id_mitra', 'LEFT');
+        $this->db->where(array('tanggal_akhir' => NULL));
+        $this->db->group_by('id_mitra');
+        $this->db->order_by('jml_alumni', 'DESC');
+        $this->db->order_by('brand');
+        $query = $this->db->get('mitra');
+      }
 
       // added and modified by Sofyan Thayf
       $mitra = $query->result_array();

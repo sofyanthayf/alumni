@@ -100,7 +100,7 @@ class Admin extends CI_Controller {
 
   public function daftar_mitra()
   {
-    $data['mitra'] = $this->mitra_model->daftar_mitra();
+    $data['mitra'] = $this->mitra_model->daftar_mitra( true );  // true = all mitra
     $this->load->template('admin/daftarmitra', $data);
   }
 

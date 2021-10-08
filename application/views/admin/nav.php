@@ -15,6 +15,10 @@
     </sup>
   </a>
 
+  <a class="btn btn-light btn-block" href="/admin/validasialumni" title="Request Validasi Alumni" style="margin:15px;">
+    <img src="/assets/img/photo16.png"> Update Data Alumni
+  </a>
+
   <a class="btn btn-light btn-block" href="/admin/aktivitasuser" title="Lihat Aktivitas User" style="margin:15px;">
     <img src="/assets/img/mhs16.png"> Aktivitas User
   </a>
