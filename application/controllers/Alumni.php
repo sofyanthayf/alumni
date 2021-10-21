@@ -651,6 +651,8 @@ class Alumni extends CI_Controller {
 
   public function testmail()
   {
+    echo getenv('SMTP_USER');
+    echo getenv('SMTP_PASS');
     $contact['email'] = "sofyan.thayf@kharisma.ac.id";
     $contact['pass'] = "ABcdeFGhiJ";
     $contact['link'] = base_url().'referensi';
