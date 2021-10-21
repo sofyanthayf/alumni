@@ -89,7 +89,7 @@
           </tr>
           <tr>
             <td class="datafields" width="180px">Website:</td>
-            <td><a href="http://<?=$mitra['website']?>" target="_blank">http://<?=$mitra['website']?></a></td>
+            <td><a href="http://<?=$mitra['website']?>" target="_blank"><?=$mitra['website']?></a></td>
           </tr>
           <tr>
             <td class="datafields" width="180px">Alumni Bekerja:</td>
