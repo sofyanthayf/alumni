@@ -163,7 +163,7 @@ class Mylib
       return true;
     } else {
       $mail_err = 'mail error';
-			// foreach ( $this->email->get_debugger_messages() as $debugger_message ) $mail_err .= $debugger_message;
+			foreach ( $this->email->get_debugger_messages() as $debugger_message ) $mail_err .= $debugger_message;
 
       return $mail_err;
     }
